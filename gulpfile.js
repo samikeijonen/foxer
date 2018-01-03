@@ -279,7 +279,7 @@ gulp.task( 'uglify', [ 'concat' ], () =>
  * Delete the theme's .pot before we create a new one.
  */
 gulp.task( 'clean:pot', () =>
-	del( [ 'languages/_s.pot' ] )
+	del( [ 'languages/foxer.pot' ] )
 );
 
 /**
@@ -292,10 +292,10 @@ gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( sort() )
 		.pipe( wpPot( {
-			'domain': '_s',
-			'package': '_s'
+			'domain': 'foxer',
+			'package': 'foxer'
 		} ) )
-		.pipe( gulp.dest( 'languages/_s.pot' ) )
+		.pipe( gulp.dest( 'languages/foxer.pot' ) )
 );
 
 /**
@@ -359,11 +359,11 @@ gulp.task( 'watch', function() {
 
 	// Kick off BrowserSync.
 	browserSync( {
-		'open': false,             // Open project in a new tab?
-		'injectChanges': true,     // Auto inject changes instead of full reload.
-		'proxy': 'testing.dev',         // Use http://_s.dev:3000 to use BrowserSync.
+		'open': true,                       // Open project in a new tab?
+		'injectChanges': true,              // Auto inject changes instead of full reload.
+		'proxy': 'foxland-products.local/', // Use http://foxland-products.local:3000 to use BrowserSync.
 		'watchOptions': {
-			'debounceDelay': 1000  // Wait 1 second before injecting.
+			'debounceDelay': 1000           // Wait 1 second before injecting.
 		}
 	} );
 
