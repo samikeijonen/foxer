@@ -130,6 +130,11 @@ function _s_scripts() {
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
 /**
+ * Scripts and styles.
+ */
+require get_template_directory() . '/inc/scripts-and-styles.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
