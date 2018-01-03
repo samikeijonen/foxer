@@ -1,6 +1,6 @@
 /* Fallback for when there is no custom background color defined. */
 body {
-	background: $color__background-body;
+	background: $color-background-body;
 }
 
 @import "typography";

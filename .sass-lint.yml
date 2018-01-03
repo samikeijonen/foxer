@@ -120,7 +120,7 @@ rules:
   quotes:
     - 1
     -
-      style: single
+      style: double
 
   shorthand-values:
   - 1

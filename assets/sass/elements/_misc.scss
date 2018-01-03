@@ -11,13 +11,13 @@ address {
 
 abbr,
 acronym {
-	border-bottom: 1px dotted $color__border-abbr;
+	border-bottom: 1px dotted $color-border-abbr;
 	cursor: help;
 }
 
 mark,
 ins {
-	background: $color__background-ins;
+	background: $color-background-ins;
 	text-decoration: none;
 }
 

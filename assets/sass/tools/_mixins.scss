@@ -1,7 +1,7 @@
 // Rem output with px fallback
-@mixin font-size($sizeValue: 1) {
-	font-size: ($sizeValue * 16) * 1px;
-	font-size: $sizeValue * 1rem;
+@mixin font-size($size-value: 1) {
+	font-size: ($size-value * 16) * 1px;
+	font-size: $size-value * 1rem;
 }
 
 // Center block
@@ -11,19 +11,7 @@
 	margin-right: auto;
 }
 
-// Clearfix
-@mixin clearfix() {
-	content: "";
-	display: table;
-	table-layout: fixed;
-}
-
-// Clear after (not all clearfix need this also)
-@mixin clearfix-after() {
-	clear: both;
-}
-
 // Column width with margin
-@mixin column-width($numberColumns: 3) {
-	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+@mixin column-width($number-columns: 3) {
+	width: map-get( $columns, $number-columns ) - ( ( $columns__margin * ( $number-columns - 1 ) ) / $number-columns );
 }

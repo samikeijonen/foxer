@@ -43,10 +43,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 
 // Settings - Global variables, config switches.
-@import "settings/variables";
+@import 'settings/variables';
 
 // Tools - Default mixins and functions.
-@import "tools/mixins";
+@import 'tools/mixins';
 
 /*--------------------------------------------------------------
 # Generic - Ground-zero styles (resets, box-sizing, etc.).
@@ -55,17 +55,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 ## Normalize
 --------------------------------------------------------------*/
-@import "generic/normalize";
+@import 'generic/normalize';
 
 /*--------------------------------------------------------------
 ## Box sizing
 --------------------------------------------------------------*/
-@import "generic/box-sizing";
+@import 'generic/box-sizing';
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-@import "elements/elements";
+@import 'elements/elements';
 
 /*--------------------------------------------------------------
 # Layouts - class-based undecorated design patterns.
@@ -76,17 +76,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-@import "layouts/posts-and-pages";
+@import 'layouts/posts-and-pages';
 
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-@import "layouts/comments";
+@import 'layouts/comments';
 
 /*--------------------------------------------------------------
 ## Widgets
 --------------------------------------------------------------*/
-@import "layouts/widgets";
+@import 'layouts/widgets';
 
 /*--------------------------------------------------------------
 # Components - specific UI components.
@@ -95,12 +95,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 ## Navigation
 --------------------------------------------------------------*/
-@import "components/navigation";
+@import 'components/navigation';
 
 /*--------------------------------------------------------------
 ## Media
 --------------------------------------------------------------*/
-@import "components/media";
+@import 'components/media';
 
 /*--------------------------------------------------------------
 # Utilities - Helpers and overrides.
@@ -109,9 +109,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 ## Accessibility
 --------------------------------------------------------------*/
-@import "utilities/accessibility";
+@import 'utilities/accessibility';
 
 /*--------------------------------------------------------------
 ## Alignments
 --------------------------------------------------------------*/
-@import "utilities/alignments";
+@import 'utilities/alignments';

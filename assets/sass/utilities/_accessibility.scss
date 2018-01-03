@@ -13,11 +13,11 @@
 	word-wrap: normal !important;
 
 	&:focus {
-		background-color: $color__background-screen;
+		background-color: $color-background-screen;
 		border-radius: 3px;
 		clip: auto !important;
 		clip-path: none;
-		color: $color__text-screen;
+		color: $color-text-screen;
 		display: block;
 		@include font-size(0.875);
 		font-weight: bold;
