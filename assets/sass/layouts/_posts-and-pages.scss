@@ -2,21 +2,14 @@
 	display: block;
 }
 
-.hentry {
-	margin: 0 0 1.5em;
-}
-
 .updated:not(.published) {
 	display: none;
 }
 
+.hentry,
 .page-content,
 .entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
+.entry-summary,
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
 }

@@ -306,7 +306,7 @@ gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
 gulp.task( 'sass:lint', () =>
 	gulp.src( [
 		'assets/sass/**/*.scss',
-		'!assets/sass/base/_normalize.scss',
+		'!assets/sass/generic/_normalize.scss',
 		'!assets/sass/base/_sprites.scss',
 		'!node_modules/**'
 	] )
