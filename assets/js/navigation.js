@@ -82,7 +82,8 @@
 
 		if ( 'ontouchstart' in window ) {
 			touchStartFn = function( e ) {
-				var menuItem = this.parentNode, i;
+				var menuItem = this.parentNode,
+				i;
 
 				if ( ! menuItem.classList.contains( 'focus' ) ) {
 					e.preventDefault();
