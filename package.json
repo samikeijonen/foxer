@@ -1,0 +1,54 @@
+{
+  "name": "foxer",
+  "version": "1.0.0",
+  "description": "A starter theme by Sami Keijonen, based on _s.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "babel-core": "~6",
+    "babel-preset-env": "~1",
+    "bourbon": "4.3.4",
+    "bourbon-neat": "1.9.0",
+    "browser-sync": "~2",
+    "css-mqpacker": "~6",
+    "del": "~3",
+    "eslint": "~4",
+    "eslint-config-wordpress": "~2",
+    "glob": "~7",
+    "gulp": "~3",
+    "gulp-babel": "~7",
+    "gulp-cheerio": "~0",
+    "gulp-concat": "~2",
+    "gulp-cssnano": "~2",
+    "gulp-eslint": "~4",
+    "gulp-imagemin": "~3",
+    "gulp-notify": "~3",
+    "gulp-plumber": "~1",
+    "gulp-postcss": "~7",
+    "gulp-rename": "~1",
+    "gulp-sass": "~3",
+    "gulp-sass-lint": "~1",
+    "gulp-sort": "~2",
+    "gulp-sourcemaps": "~2",
+    "gulp-svgmin": "~1",
+    "gulp-svgstore": "~6",
+    "gulp-uglify": "~3",
+    "gulp-util": "~3",
+    "gulp-wp-pot": "~2",
+    "gulp.spritesmith": "~6",
+    "sassdoc": "~2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "repository": "git+https://github.com/samikeijonen/foxer.git",
+  "keywords": [
+    "theme"
+  ],
+  "author": "Sami Keijonen",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/samikeijonen/foxer/issues"
+  },
+  "homepage": "https://github.com/samikeijonen/foxer/#readme"
+}
