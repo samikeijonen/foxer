@@ -70,7 +70,7 @@ gulp.task( 'clean:styles', () =>
  * https://www.npmjs.com/package/css-mqpacker
  */
 gulp.task( 'postcss', [ 'clean:styles' ], () =>
-	gulp.src( 'assets/sass/*.scss', paths.css )
+	gulp.src( config.styleSRC )
 
 		// Deal with errors.
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
@@ -115,7 +115,7 @@ gulp.task( 'cssnano', [ 'postcss' ], () =>
 			'safe': true // Use safe optimizations.
 		} ) )
 		.pipe( rename( config.styleMinName ) )
-		.pipe( gulp.dest( './' ) )
+		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( browserSync.stream() )
 );
 
@@ -123,7 +123,7 @@ gulp.task( 'cssnano', [ 'postcss' ], () =>
  * Delete the svg-icons.svg before we minify, concat.
  */
 gulp.task( 'clean:icons', () =>
-	del( [ 'assets/images/svg-icons.svg' ] )
+	del( [ config.svgSprite ] )
 );
 
 /**
@@ -145,10 +145,10 @@ gulp.task( 'svg', [ 'clean:icons' ], () =>
 		// Add a prefix to SVG IDs.
 		.pipe( rename( {'prefix': 'icon-'} ) )
 
-		// Combine all SVGs into a single <symbol>
+		// Combine all SVGs into a single <symbol>.
 		.pipe( svgstore( {'inlineSvg': true} ) )
 
-		// Clean up the <symbol> by removing the following cruft...
+		// Clean up the <symbol> by removing the following cruft.
 		.pipe( cheerio( {
 			'run': function( $, file ) {
 				$( 'svg' ).attr( 'style', 'display:none' );
@@ -188,7 +188,7 @@ gulp.task( 'imagemin', () =>
  * https://www.npmjs.com/package/gulp-sourcemaps
  */
 gulp.task( 'concat', () =>
-	gulp.src( paths.concat_scripts )
+	gulp.src( config.jsConcatSRC )
 
 		// Deal with errors.
 		.pipe( plumber(
@@ -210,13 +210,13 @@ gulp.task( 'concat', () =>
 		} ) )
 
 		// Concatenate partials into a single script.
-		.pipe( concat( 'project.js' ) )
+		.pipe( concat( config.jsConcatFile ) )
 
 		// Append the sourcemap to project.js.
 		.pipe( sourcemaps.write() )
 
 		// Save project.js
-		.pipe( gulp.dest( 'assets/scripts' ) )
+		.pipe( gulp.dest( config.jsConcatDST ) )
 		.pipe( browserSync.stream() )
 );
 
@@ -249,7 +249,7 @@ gulp.task( 'uglify', [ 'concat' ], () =>
  * Delete the theme's .pot before we create a new one.
  */
 gulp.task( 'clean:pot', () =>
-	del( [ 'languages/foxer.pot' ] )
+	del( [ `${config.translationDST}/${config.translationFile}` ] )
 );
 
 /**
@@ -258,14 +258,14 @@ gulp.task( 'clean:pot', () =>
  * https://www.npmjs.com/package/gulp-wp-pot
  */
 gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
-	gulp.src( paths.php )
+	gulp.src( config.PHPWatchFiles )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( sort() )
 		.pipe( wpPot( {
 			'domain': config.textDomain,
 			'package': config.packageName
 		} ) )
-		.pipe( gulp.dest( config.translationDST + '/' + config.translationFile ) )
+		.pipe( gulp.dest( `${config.translationDST}/${config.translationFile}` ) )
 );
 
 /**
@@ -303,7 +303,7 @@ gulp.task( 'sassdoc', function() {
 		verbose: true
 	};
 
-	return gulp.src( 'assets/sass/**/*.scss' )
+	return gulp.src( config.styleWatchFiles )
 		.pipe( sassdoc( options ) );
 } );
 
@@ -337,8 +337,8 @@ gulp.task( 'watch', function() {
 gulp.task( 'markup', browserSync.reload );
 gulp.task( 'i18n', [ 'wp-pot' ] );
 gulp.task( 'icons', [ 'svg' ] );
-gulp.task( 'scripts', [ 'uglify' ] );
 gulp.task( 'styles', [ 'cssnano' ] );
+gulp.task( 'scripts', [ 'uglify' ] );
 gulp.task( 'lint', [ 'sass:lint', 'js:lint' ] );
 gulp.task( 'docs', [ 'sassdoc' ] );
 gulp.task( 'default', [ 'i18n', 'icons', 'styles', 'scripts', 'imagemin' ] );

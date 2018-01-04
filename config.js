@@ -46,17 +46,18 @@ module.exports = {
 	],
 
 	// JS Custom options.
-	jsCustomSRC: './assets/js/custom/*.js', // Path to JS custom scripts folder.
-	jsCustomDestination: './assets/js/', // Path to place the compiled JS custom scripts file.
-	jsCustomFile: 'custom', // Compiled JS custom file name. Default set to custom i.e. custom.js.
+	jsConcatSRC: './assets/js/concat/*.js', // Path to JS custom scripts folder.
+	jsConcatDST: './assets/js/',            // Path to place the compiled JS custom scripts file.
+	jsConcatFile: 'project.js',             // Compiled JS custom file name. Default set to custom i.e. project.js.
 
 	// Images options.
 	imgSRC: [ './assets/images/*', '!./assets/images/*.svg' ], // Source folder of images which should be optimized and watched.
 	imgDST: './assets/images/',                                // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 	// SVG options.
-	svgSRC: './assets/images/svg-icons/*.svg', // Source folder of SVG icons.
-	svgDST: './assets/images/',                // Destination folder of svg sprite file. Must be different from the svgSRC folder.
+	svgSprite: './assets/images/svg-icons.svg', // SVG sprite file.
+	svgSRC: './assets/images/svg-icons/*.svg',  // Source folder of SVG icons.
+	svgDST: './assets/images/',                 // Destination folder of svg sprite file. Must be different from the svgSRC folder.
 
 	// Watch files paths.
 	styleWatchFiles: './assets/sass/**/*.scss',       // Path to all *.scss files inside css folder and inside them.
@@ -66,10 +67,10 @@ module.exports = {
 	SVGWatchFiles: './assets/images/svg-icons/*.svg', // Path to all SVG files.
 
 	// Translation options.
-	textDomain: 'foxer',                   // Your textdomain here.
-	translationFile: 'foxer.pot',          // Name of the transalation file.
+	textDomain: 'foxer',           // Your textdomain here.
+	translationFile: 'foxer.pot',  // Name of the transalation file.
 	translationDST: './languages', // Where to save the translation files.
-	packageName: 'Foxer',                  // Package name.
+	packageName: 'Foxer',          // Package name.
 
 	// Browsers you care about for autoprefixing. Browserlist https://github.com/ai/browserslist
 	BROWSERS_LIST: [
