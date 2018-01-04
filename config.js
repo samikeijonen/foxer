@@ -33,8 +33,8 @@ module.exports = {
 	],
 
 	// JS Vendor options.
-	jsSRC: [ './assets/js/*.js', './!assets/js/*.min.js' ], // Path to JS folder.
-	jsDST: './assets/js/', // Path to place the compiled JS vendors file.
+	jsSRC: [ 'assets/js/*.js', '!assets/js/*.min.js' ], // Path to JS folder.
+	jsDST: './assets/js/',                                  // Path to place the compiled JS vendors file.
 	JSLint: [
 		'assets/js/concat/*.js',
 		'assets/js/*.js',
@@ -51,8 +51,8 @@ module.exports = {
 	jsConcatFile: 'project.js',             // Compiled JS custom file name. Default set to custom i.e. project.js.
 
 	// Images options.
-	imgSRC: [ './assets/images/*', '!./assets/images/*.svg' ], // Source folder of images which should be optimized and watched.
-	imgDST: './assets/images/',                                // Destination folder of optimized images. Must be different from the imagesSRC folder.
+	imgSRC: [ 'assets/images/*', '!assets/images/*.svg' ], // Source folder of images which should be optimized and watched.
+	imgDST: './assets/images/',                            // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 	// SVG options.
 	svgSprite: './assets/images/svg-icons.svg', // SVG sprite file.
@@ -73,18 +73,9 @@ module.exports = {
 	packageName: 'Foxer',          // Package name.
 
 	// Browsers you care about for autoprefixing. Browserlist https://github.com/ai/browserslist
-	BROWSERS_LIST: [
+	browserList: [
 		'last 2 version',
-		'> 1%',
-		'ie >= 9',
-		'ie_mob >= 10',
-		'ff >= 30',
-		'chrome >= 34',
-		'safari >= 7',
-		'opera >= 23',
-		'ios >= 7',
-		'android >= 4',
-		'bb >= 10'
+		'ie 11'
 	]
 
 	// STOP Editing Project Variables.

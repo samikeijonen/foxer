@@ -88,7 +88,7 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
 			// Parse with PostCSS plugins.
 			.pipe( postcss( [
 				autoprefixer( {
-					'browsers': [ 'last 2 version' ]
+					'browsers': config.browserList
 				} ),
 				mqpacker( {
 					'sort': true
@@ -203,7 +203,7 @@ gulp.task( 'concat', () =>
 			'presets': [
 				[ 'env', {
 					'targets': {
-						'browsers': [ 'last 2 versions' ]
+						'browsers': config.browserList
 					}
 				} ]
 			]
@@ -233,7 +233,7 @@ gulp.task( 'uglify', [ 'concat' ], () =>
 			'presets': [
 				[ 'env', {
 					'targets': {
-						'browsers': [ 'last 2 versions', 'ie 11' ]
+						'browsers': config.browserList
 					},
 					'modules': false // Disable strict mode for now.
 				} ]
