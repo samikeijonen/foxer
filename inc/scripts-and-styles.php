@@ -1,5 +1,11 @@
 <?php
 /**
+ * Styles and scripts related functions, hooks, and filters.
+ *
+ * @package _s
+ */
+
+/**
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
