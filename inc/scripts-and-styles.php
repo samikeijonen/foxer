@@ -12,6 +12,9 @@ function _s_scripts() {
 	// Get '.min' suffix.
 	$suffix = _s_get_min_suffix();
 
+	// Custom fonts, used in the main stylesheet.
+	wp_enqueue_style( '_s-fonts', _s_fonts_url(), array(), null );
+
 	// Main styles.
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 

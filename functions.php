@@ -114,6 +114,11 @@ function _s_widgets_init() {
 add_action( 'widgets_init', '_s_widgets_init' );
 
 /**
+ * Custom fonts.
+ */
+require get_template_directory() . '/inc/fonts.php';
+
+/**
  * Scripts and styles.
  */
 require get_template_directory() . '/inc/scripts-and-styles.php';
