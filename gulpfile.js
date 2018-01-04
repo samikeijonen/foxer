@@ -1,3 +1,10 @@
+/**
+ * Load Config.
+ *
+ * Customize your project in the config.js file
+ */
+const config = require( './config.js' );
+
 // Require our dependencies
 const autoprefixer = require( 'autoprefixer' );
 const babel = require( 'gulp-babel' );
@@ -24,23 +31,10 @@ const sassdoc = require( 'sassdoc' );
 const sassLint = require( 'gulp-sass-lint' );
 const sort = require( 'gulp-sort' );
 const sourcemaps = require( 'gulp-sourcemaps' );
-const spritesmith = require( 'gulp.spritesmith' );
 const svgmin = require( 'gulp-svgmin' );
 const svgstore = require( 'gulp-svgstore' );
 const uglify = require( 'gulp-uglify' );
 const wpPot = require( 'gulp-wp-pot' );
-
-// Set assets paths.
-const paths = {
-	'css': [ './*.css', '!*.min.css' ],
-	'icons': 'assets/images/svg-icons/*.svg',
-	'images': [ 'assets/images/*', '!assets/images/*.svg' ],
-	'php': [ './*.php', './**/*.php' ],
-	'sass': 'assets/sass/**/*.scss',
-	'concat_scripts': 'assets/js/concat/*.js',
-	'scripts': [ 'assets/js/*.js', '!assets/js/*.min.js' ],
-	'sprites': 'assets/images/sprites/*.png'
-};
 
 /**
  * Handle errors and alert the user.
@@ -64,7 +58,7 @@ function handleErrors() {
  * Delete style.css and style.min.css before we minify and optimize
  */
 gulp.task( 'clean:styles', () =>
-	del( [ 'style.css', 'style.min.css' ] )
+	del( [ config.styleName, config.styleMinName ] )
 );
 
 /**
@@ -87,8 +81,8 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
 			// Compile Sass using LibSass.
 			.pipe( sass( {
 				'includePaths': [].concat( bourbon, neat ),
-				'errLogToConsole': true,
-				'outputStyle': 'expanded' // Options: nested, expanded, compact, compressed
+				'errLogToConsole': config.errLogToConsole,
+				'outputStyle': config.outputStyle
 			} ) )
 
 			// Parse with PostCSS plugins.
@@ -105,7 +99,7 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
 		.pipe( sourcemaps.write() )
 
 		// Create style.css.
-		.pipe( gulp.dest( './' ) )
+		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( browserSync.stream() )
 );
 
@@ -115,12 +109,12 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
  * https://www.npmjs.com/package/gulp-cssnano
  */
 gulp.task( 'cssnano', [ 'postcss' ], () =>
-	gulp.src( 'style.css' )
+	gulp.src( config.styleName )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( cssnano( {
 			'safe': true // Use safe optimizations.
 		} ) )
-		.pipe( rename( 'style.min.css' ) )
+		.pipe( rename( config.styleMinName ) )
 		.pipe( gulp.dest( './' ) )
 		.pipe( browserSync.stream() )
 );
@@ -140,7 +134,7 @@ gulp.task( 'clean:icons', () =>
  * https://www.npmjs.com/package/gulp-cheerio
  */
 gulp.task( 'svg', [ 'clean:icons' ], () =>
-	gulp.src( paths.icons )
+	gulp.src( config.svgSRC )
 
 		// Deal with errors.
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
@@ -166,7 +160,7 @@ gulp.task( 'svg', [ 'clean:icons' ], () =>
 		} ) )
 
 		// Save svg-icons.svg.
-		.pipe( gulp.dest( 'assets/images/' ) )
+		.pipe( gulp.dest( config.svgDST ) )
 		.pipe( browserSync.stream() )
 );
 
@@ -176,39 +170,14 @@ gulp.task( 'svg', [ 'clean:icons' ], () =>
  * https://www.npmjs.com/package/gulp-imagemin
  */
 gulp.task( 'imagemin', () =>
-	gulp.src( paths.images )
+	gulp.src( config.imgSRC )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( imagemin( {
 			'optimizationLevel': 5,
 			'progressive': true,
 			'interlaced': true
 		} ) )
-		.pipe( gulp.dest( 'assets/images' ) )
-);
-
-/**
- * Delete the sprites.png before rebuilding sprite.
- */
-gulp.task( 'clean:sprites', () => {
-	del( [ 'assets/images/sprites.png' ] );
-} );
-
-/**
- * Concatenate images into a single PNG sprite.
- *
- * https://www.npmjs.com/package/gulp.spritesmith
- */
-gulp.task( 'spritesmith', () =>
-	gulp.src( paths.sprites )
-		.pipe( plumber( {'errorHandler': handleErrors} ) )
-		.pipe( spritesmith( {
-			'imgName': 'sprites.png',
-			'cssName': '../../assets/sass/base/_sprites.scss',
-			'imgPath': 'assets/images/sprites.png',
-			'algorithm': 'binary-tree'
-		} ) )
-		.pipe( gulp.dest( 'assets/images/' ) )
-		.pipe( browserSync.stream() )
+		.pipe( gulp.dest( config.imgDST ) )
 );
 
 /**
@@ -257,7 +226,7 @@ gulp.task( 'concat', () =>
   * https://www.npmjs.com/package/gulp-uglify
   */
 gulp.task( 'uglify', [ 'concat' ], () =>
-	gulp.src( paths.scripts )
+	gulp.src( config.jsSRC )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( rename( {'suffix': '.min'} ) )
 		.pipe( babel( {
@@ -273,7 +242,7 @@ gulp.task( 'uglify', [ 'concat' ], () =>
 		.pipe( uglify( {
 			'mangle': false
 		} ) )
-		.pipe( gulp.dest( 'assets/js' ) )
+		.pipe( gulp.dest( config.jsDST ) )
 );
 
 /**
@@ -293,10 +262,10 @@ gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( sort() )
 		.pipe( wpPot( {
-			'domain': 'foxer',
-			'package': 'foxer'
+			'domain': config.textDomain,
+			'package': config.packageName
 		} ) )
-		.pipe( gulp.dest( 'languages/foxer.pot' ) )
+		.pipe( gulp.dest( config.translationDST + '/' + config.translationFile ) )
 );
 
 /**
@@ -305,12 +274,7 @@ gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
  * https://www.npmjs.com/package/sass-lint
  */
 gulp.task( 'sass:lint', () =>
-	gulp.src( [
-		'assets/sass/**/*.scss',
-		'!assets/sass/generic/_normalize.scss',
-		'!assets/sass/base/_sprites.scss',
-		'!node_modules/**'
-	] )
+	gulp.src( config.SassLint )
 		.pipe( sassLint() )
 		.pipe( sassLint.format() )
 		.pipe( sassLint.failOnError() )
@@ -322,15 +286,7 @@ gulp.task( 'sass:lint', () =>
  * https://www.npmjs.com/package/gulp-eslint
  */
 gulp.task( 'js:lint', () =>
-	gulp.src( [
-		'assets/js/concat/*.js',
-		'assets/js/*.js',
-		'!assets/js/project.js',
-		'!assets/js/*.min.js',
-		'!Gruntfile.js',
-		'!Gulpfile.js',
-		'!node_modules/**'
-	] )
+	gulp.src( config.JSLint )
 		.pipe( eslint() )
 		.pipe( eslint.format() )
 		.pipe( eslint.failAfterError() )
@@ -360,21 +316,19 @@ gulp.task( 'watch', function() {
 
 	// Kick off BrowserSync.
 	browserSync( {
-		'open': true,                       // Open project in a new tab?
-		'injectChanges': true,              // Auto inject changes instead of full reload.
-		'proxy': 'foxland-products.local/', // Use http://foxland-products.local:3000 to use BrowserSync.
+		'open': config.browserAutoOpen,        // Open project in a new tab?
+		'injectChanges': config.injectChanges, // Auto inject changes instead of full reload.
+		'proxy': config.projectURL,            // Use http://foxland-products.local:3000 to use BrowserSync.
 		'watchOptions': {
-			'debounceDelay': 1000           // Wait 1 second before injecting.
+			'debounceDelay': 500               // Wait 0.5s second before injecting.
 		}
 	} );
 
 	// Run tasks when files change.
-	gulp.watch( paths.icons, [ 'icons' ] );
-	gulp.watch( paths.sass, [ 'styles' ] );
-	gulp.watch( paths.scripts, [ 'scripts' ] );
-	gulp.watch( paths.concat_scripts, [ 'scripts' ] );
-	gulp.watch( paths.sprites, [ 'sprites' ] );
-	gulp.watch( paths.php, [ 'markup' ] );
+	gulp.watch( config.svgSRC, [ 'icons' ] );
+	gulp.watch( config.styleWatchFiles, [ 'styles' ] );
+	gulp.watch( config.jsSRC, [ 'scripts' ] );
+	gulp.watch( config.PHPWatchFiles, [ 'markup' ] );
 } );
 
 /**
@@ -385,7 +339,6 @@ gulp.task( 'i18n', [ 'wp-pot' ] );
 gulp.task( 'icons', [ 'svg' ] );
 gulp.task( 'scripts', [ 'uglify' ] );
 gulp.task( 'styles', [ 'cssnano' ] );
-gulp.task( 'sprites', [ 'spritesmith' ] );
 gulp.task( 'lint', [ 'sass:lint', 'js:lint' ] );
 gulp.task( 'docs', [ 'sassdoc' ] );
-gulp.task( 'default', [ 'sprites', 'i18n', 'icons', 'styles', 'scripts', 'imagemin' ] );
+gulp.task( 'default', [ 'i18n', 'icons', 'styles', 'scripts', 'imagemin' ] );
