@@ -264,15 +264,16 @@ gulp.task( 'uglify', [ 'concat' ], () =>
 			'presets': [
 				[ 'env', {
 					'targets': {
-						'browsers': [ 'last 2 versions' ]
-					}
+						'browsers': [ 'last 2 versions', 'ie 11' ]
+					},
+					'modules': false // Disable strict mode for now.
 				} ]
 			]
 		} ) )
 		.pipe( uglify( {
 			'mangle': false
 		} ) )
-		.pipe( gulp.dest( 'assets/scripts' ) )
+		.pipe( gulp.dest( 'assets/js' ) )
 );
 
 /**
