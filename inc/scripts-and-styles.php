@@ -2,34 +2,34 @@
 /**
  * Styles and scripts related functions, hooks, and filters.
  *
- * @package _s
+ * @package Foxer
  */
 
 /**
  * Enqueue scripts and styles.
  */
-function _s_scripts() {
+function foxer_scripts() {
 	// Get '.min' suffix.
-	$suffix = _s_get_min_suffix();
+	$suffix = foxer_get_min_suffix();
 
 	// Custom fonts, used in the main stylesheet.
-	wp_enqueue_style( '_s-fonts', _s_fonts_url(), array(), null );
+	wp_enqueue_style( ' foxer-fonts', foxer_fonts_url(), array(), null );
 
 	// Main styles.
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+	wp_enqueue_style( ' foxer-style', get_stylesheet_uri() );
 
 	// Main scripts.
-	wp_enqueue_script( '_s-navigation', get_theme_file_uri( '/assets/js/navigation' . $suffix . '.js' ), array(), '20180101', true );
+	wp_enqueue_script( ' foxer-navigation', get_theme_file_uri( '/assets/js/navigation' . $suffix . '.js' ), array(), '20180101', true );
 
 	// Skip link for older browsers (IE 11).
-	wp_enqueue_script( '_s-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix' . $suffix . '.js' ), array(), '20180101', true );
+	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix' . $suffix . '.js' ), array(), '20180101', true );
 
 	// Comments JS.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', '_s_scripts' );
+add_action( 'wp_enqueue_scripts', 'foxer_scripts' );
 
 /**
  * Filters the 'stylesheet_uri' to allow theme developers to offer a minimized version of their main
@@ -44,9 +44,9 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  * @param     string  $stylesheet_dir_uri  The directory URI of the active theme's stylesheet.
  * @return    string  $stylesheet_uri
  */
-function _s_min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+function foxer_min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 	// Get '.min' suffix.
-	$suffix = _s_get_min_suffix();
+	$suffix = foxer_get_min_suffix();
 
 	// Use the .min stylesheet if available.
 	if ( $suffix ) {
@@ -65,14 +65,14 @@ function _s_min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 	// Return the theme stylesheet.
 	return $stylesheet_uri;
 }
-add_filter( 'stylesheet_uri', '_s_min_stylesheet_uri', 5, 2 );
+add_filter( 'stylesheet_uri', 'foxer_min_stylesheet_uri', 5, 2 );
 
 /**
  * Helper function for getting the script/style `.min` suffix for minified files.
  *
  * @return string
  */
-function _s_get_min_suffix() {
+function foxer_get_min_suffix() {
 	return defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
 }
 
@@ -81,7 +81,7 @@ function _s_get_min_suffix() {
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  */
-function _s_javascript_detection() {
+function foxer_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
-add_action( 'wp_head', '_s_javascript_detection', 0 );
+add_action( 'wp_head', 'foxer_javascript_detection', 0 );

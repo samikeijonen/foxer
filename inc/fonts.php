@@ -2,13 +2,13 @@
 /**
  * Fonts related functions.
  *
- * @package _s
+ * @package Foxer
  */
 
 /**
  * Register custom fonts.
  */
-function _s_fonts_url() {
+function foxer_fonts_url() {
 	$fonts_url = '';
 	$fonts     = array();
 	$subsets   = 'latin,latin-ext';
@@ -18,7 +18,7 @@ function _s_fonts_url() {
 	 * supported by Fira Sans, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	if ( 'off' !== esc_attr_x( 'on', 'Fira Sans font: on or off', '_s' ) ) {
+	if ( 'off' !== esc_attr_x( 'on', 'Fira Sans font: on or off', 'foxer' ) ) {
 		$fonts[] = 'Lora:400,700,400i,700i';
 	}
 
@@ -27,7 +27,7 @@ function _s_fonts_url() {
 	 * supported by Lato, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	if ( 'off' !== esc_attr_x( 'on', 'Lato font: on or off', '_s' ) ) {
+	if ( 'off' !== esc_attr_x( 'on', 'Lato font: on or off', 'foxer' ) ) {
 		$fonts[] = 'Lato:400,700,400i,700i';
 	}
 
@@ -50,8 +50,8 @@ function _s_fonts_url() {
  * @param string $relation_type  The relation type the URLs are printed.
  * @return array $urls           URLs to print for resource hints.
  */
-function _s_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( '_s-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+function foxer_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( ' foxer-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
@@ -60,4 +60,4 @@ function _s_resource_hints( $urls, $relation_type ) {
 
 	return $urls;
 }
-add_filter( 'wp_resource_hints', '_s_resource_hints', 10, 2 );
+add_filter( 'wp_resource_hints', 'foxer_resource_hints', 10, 2 );

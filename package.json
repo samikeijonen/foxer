@@ -1,7 +1,7 @@
 {
   "name": "foxer",
   "version": "1.0.0",
-  "description": "A starter theme by Sami Keijonen, based on _s.",
+  "description": "A starter theme by Sami Keijonen, based on foxer.",
   "main": "gulpfile.js",
   "dependencies": {
     "babel-core": "~6",
