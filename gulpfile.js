@@ -70,7 +70,7 @@ gulp.task( 'clean:styles', () =>
  * https://www.npmjs.com/package/css-mqpacker
  */
 gulp.task( 'postcss', [ 'clean:styles' ], () =>
-	gulp.src( config.styleSRC )
+	gulp.src( config.styleWatchFiles )
 
 		// Deal with errors.
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
