@@ -325,7 +325,7 @@ gulp.task( 'watch', function() {
 	} );
 
 	// Run tasks when files change.
-	gulp.watch( config.svgSRC, [ 'icons' ] );
+	gulp.watch( config.SVGWatchFiles, [ 'icons' ] );
 	gulp.watch( config.styleWatchFiles, [ 'styles' ] );
 	gulp.watch( config.jsSRC, [ 'scripts' ] );
 	gulp.watch( config.PHPWatchFiles, [ 'markup' ] );

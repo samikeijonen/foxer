@@ -60,11 +60,11 @@ module.exports = {
 	svgDST: './assets/images/',                 // Destination folder of svg sprite file. Must be different from the svgSRC folder.
 
 	// Watch files paths.
-	styleWatchFiles: './assets/sass/**/*.scss',       // Path to all *.scss files inside css folder and inside them.
-	vendorJSWatchFiles: './assets/js/vendor/*.js',    // Path to all vendor JS files.
-	customJSWatchFiles: './assets/js/custom/*.js',    // Path to all custom JS files.
-	PHPWatchFiles: './**/*.php',                      // Path to all PHP files.
-	SVGWatchFiles: './assets/images/svg-icons/*.svg', // Path to all SVG files.
+	styleWatchFiles: 'assets/sass/**/*.scss',       // Path to all *.scss files inside css folder and inside them.
+	vendorJSWatchFiles: 'assets/js/vendor/*.js',    // Path to all vendor JS files.
+	customJSWatchFiles: 'assets/js/custom/*.js',    // Path to all custom JS files.
+	PHPWatchFiles: '**/*.php',                      // Path to all PHP files.
+	SVGWatchFiles: 'assets/images/svg-icons/*.svg', // Path to all SVG files.
 
 	// Translation options.
 	textDomain: 'foxer',           // Your textdomain here.
