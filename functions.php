@@ -124,6 +124,11 @@ require get_template_directory() . '/inc/fonts.php';
 require get_template_directory() . '/inc/scripts-and-styles.php';
 
 /**
+ * SVG icons.
+ */
+require get_template_directory() . '/inc/icons.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
