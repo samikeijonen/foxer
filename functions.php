@@ -78,6 +78,17 @@ function foxer_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
+
+	// Add support for editor color palette.
+	add_theme_support( 'editor-color-palette',
+		'#111',
+		'#d0a5db',
+		'#eee',
+		'#fff'
+	);
+
+	// Add support for align wide blocks.
+	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'foxer_setup' );
 
