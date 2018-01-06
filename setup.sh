@@ -2,8 +2,8 @@
 # Theme setup based on aucor-starter. https://github.com/aucor/aucor-starter
 
 # Defaults
-default_name="Boxer"
-default_id="boxer"
+default_name="Foxer"
+default_id="foxer"
 default_url="foxland-products.local/"
 default_locale="fi"
 
