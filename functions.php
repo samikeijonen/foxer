@@ -114,12 +114,12 @@ add_action( 'widgets_init', 'foxer_widgets_init' );
 /**
  * Custom fonts.
  */
-require get_parent_theme_file_path( '/inc/fonts.php' ) ;
+require get_parent_theme_file_path( '/inc/fonts.php' );
 
 /**
  * Scripts and styles.
  */
-require get_parent_theme_file_path() . '/inc/scripts-and-styles.php';
+require get_parent_theme_file_path( '/inc/scripts-and-styles.php' );
 
 /**
  * SVG icons.
