@@ -110,4 +110,4 @@ echo "--> Change url .............. ${green}done${txtreset}"
 echo "--> ${green}Setup complete!${txtreset}"
 
 echo "--> setup.sh removed"
-#rm "$setup_script"
+rm "$setup_script"
