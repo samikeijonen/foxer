@@ -22,7 +22,7 @@ if ( ! function_exists( 'foxer_setup' ) ) :
 		 * If you're building a theme based on foxer, use a find and replace
 		 * to change 'foxer' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'foxer', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'foxer', get_parent_theme_file_path( '/languages' ) );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -116,34 +116,34 @@ add_action( 'widgets_init', 'foxer_widgets_init' );
 /**
  * Custom fonts.
  */
-require get_template_directory() . '/inc/fonts.php';
+require get_parent_theme_file_path( '/inc/fonts.php' ) ;
 
 /**
  * Scripts and styles.
  */
-require get_template_directory() . '/inc/scripts-and-styles.php';
+require get_parent_theme_file_path() . '/inc/scripts-and-styles.php';
 
 /**
  * SVG icons.
  */
-require get_template_directory() . '/inc/icons.php';
+require get_parent_theme_file_path( '/inc/icons.php' );
 
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_parent_theme_file_path( '/inc/custom-header.php' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_parent_theme_file_path( '/inc/template-tags.php' );
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require get_parent_theme_file_path( '/inc/template-functions.php' );
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_parent_theme_file_path( '/inc/customizer.php' );
