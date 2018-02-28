@@ -3,17 +3,17 @@
 Contributors: automattic
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
-Requires at least: 4.0
+Requires at least: 4.9
 Tested up to: 4.8
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called foxer, or underscores.
+A starter theme called foxer.
 
 == Description ==
 
-Hi. I'm a starter theme called foxer, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Hi. I'm a starter theme called foxer, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
 == Installation ==
 
@@ -23,13 +23,9 @@ Hi. I'm a starter theme called foxer, or underscores, if you like. I'm a theme m
 
 == Frequently Asked Questions ==
 
-= Does this theme support any plugins? =
-
-_s includes support for Infinite Scroll in Jetpack.
-
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - May 12 2018 =
 * Initial release
 
 == Credits ==
