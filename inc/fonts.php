@@ -33,8 +33,8 @@ function foxer_fonts_url() {
 
 	if ( $fonts ) {
 		$query_args = array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
+			'family' => rawurlencode( implode( '|', $fonts ) ),
+			'subset' => rawurlencode( $subsets ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );

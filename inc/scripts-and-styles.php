@@ -40,9 +40,9 @@ add_action( 'wp_enqueue_scripts', 'foxer_scripts' );
  * @copyright Copyright (c) 2008 - 2017, Justin Tadlock
  * @link      http://themehybrid.com/hybrid-core
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- * @param     string  $stylesheet_uri      The URI of the active theme's stylesheet.
- * @param     string  $stylesheet_dir_uri  The directory URI of the active theme's stylesheet.
- * @return    string  $stylesheet_uri
+ * @param     string $stylesheet_uri     The URI of the active theme's stylesheet.
+ * @param     string $stylesheet_dir_uri The directory URI of the active theme's stylesheet.
+ * @return    string $stylesheet_uri
  */
 function foxer_min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 	// Get '.min' suffix.

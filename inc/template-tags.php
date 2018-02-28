@@ -127,5 +127,6 @@ function foxer_post_thumbnail() {
 		?>
 	</a>
 
-	<?php endif; // End is_singular().
+	<?php
+	endif; // End is_singular().
 }
