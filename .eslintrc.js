@@ -31,7 +31,7 @@ module.exports = {
 	 *
 	 *     npm install -g eslint-config-wordpress
 	 *
-	 * @@since 1.1
+	 * @since 1.1
 	 */
 	extends: 'wordpress',
 
