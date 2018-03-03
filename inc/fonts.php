@@ -10,7 +10,7 @@
  */
 function foxer_fonts_url() {
 	$fonts_url = '';
-	$fonts     = array();
+	$fonts     = [];
 	$subsets   = 'latin,latin-ext';
 
 	/*
@@ -32,10 +32,10 @@ function foxer_fonts_url() {
 	}
 
 	if ( $fonts ) {
-		$query_args = array(
+		$query_args = [
 			'family' => rawurlencode( implode( '|', $fonts ) ),
 			'subset' => rawurlencode( $subsets ),
-		);
+		];
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 	}
@@ -52,10 +52,10 @@ function foxer_fonts_url() {
  */
 function foxer_resource_hints( $urls, $relation_type ) {
 	if ( wp_style_is( ' foxer-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
-		$urls[] = array(
+		$urls[] = [
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
-		);
+		];
 	}
 
 	return $urls;

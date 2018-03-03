@@ -13,16 +13,16 @@ function foxer_scripts() {
 	$suffix = foxer_get_min_suffix();
 
 	// Custom fonts, used in the main stylesheet.
-	wp_enqueue_style( ' foxer-fonts', foxer_fonts_url(), array(), null );
+	wp_enqueue_style( ' foxer-fonts', foxer_fonts_url(), [], null );
 
 	// Main styles.
 	wp_enqueue_style( ' foxer-style', get_stylesheet_uri() );
 
 	// Main scripts.
-	wp_enqueue_script( ' foxer-navigation', get_theme_file_uri( '/assets/js/navigation' . $suffix . '.js' ), array(), '20180101', true );
+	wp_enqueue_script( ' foxer-navigation', get_theme_file_uri( '/assets/js/navigation' . $suffix . '.js' ), [], '20180101', true );
 
 	// Skip link for older browsers (IE 11).
-	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix' . $suffix . '.js' ), array(), '20180101', true );
+	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix' . $suffix . '.js' ), [], '20180101', true );
 
 	// Comments JS.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

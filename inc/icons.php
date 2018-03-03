@@ -31,7 +31,7 @@ add_action( 'wp_footer', 'foxer_include_svg_icons', 9999 );
  * }
  * @return string SVG markup.
  */
-function foxer_get_svg( $args = array() ) {
+function foxer_get_svg( $args = [] ) {
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
 		return esc_html__( 'Please define default parameters in the form of an array.', 'foxer' );
@@ -43,12 +43,12 @@ function foxer_get_svg( $args = array() ) {
 	}
 
 	// Set defaults.
-	$defaults = array(
+	$defaults = [
 		'icon'     => '',
 		'title'    => '',
 		'desc'     => '',
 		'fallback' => false,
-	);
+	];
 
 	// Parse args.
 	$args = wp_parse_args( $args, $defaults );
@@ -64,9 +64,9 @@ function foxer_get_svg( $args = array() ) {
 	 *
 	 * However, themes can use the title and description to add information to non-decorative SVG icons to improve accessibility.
 	 *
-	 * Example 1 with title: <?php echo foxer_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
+	 * Example 1 with title: <?php echo foxer_get_svg( [ 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ] ); ?>
 	 *
-	 * Example 2 with title and description: <?php echo foxer_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
+	 * Example 2 with title and description: <?php echo foxer_get_svg( [ 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ] ); ?>
 	 *
 	 * See https://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/.
 	 */
@@ -129,7 +129,7 @@ function foxer_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	if ( 'social' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
-				$item_output = str_replace( $args->link_after, '</span>' . foxer_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
+				$item_output = str_replace( $args->link_after, '</span>' . foxer_get_svg( [ 'icon' => esc_attr( $value ) ] ), $item_output );
 			}
 		}
 	}
@@ -151,7 +151,7 @@ function foxer_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	if ( 'menu-1' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . foxer_get_svg( array( 'icon' => 'angle-down' ) );
+				$title = $title . foxer_get_svg( [ 'icon' => 'angle-down' ] );
 			}
 		}
 	}
@@ -167,10 +167,10 @@ add_filter( 'nav_menu_item_title', 'foxer_dropdown_icon_to_menu_link', 10, 4 );
  */
 function foxer_social_links_icons() {
 	// Supported social links icons.
-	$social_links_icons = array(
+	$social_links_icons = [
 		'instagram.com' => 'instagram',
 		'twitter.com'   => 'twitter',
-	);
+	];
 
 	/**
 	 * Filter social links icons.
