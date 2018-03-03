@@ -4,6 +4,7 @@
     "excludeFiles": [
 		"assets/js/**.min.js",
 		"gulpfile.js",
-		"config.js"
+		"config.js",
+		".eslintrc.js"
     ]
 }

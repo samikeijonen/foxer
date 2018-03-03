@@ -1,3 +1,4 @@
 assets/js/**.min.js
 gulpfile.js
 config.js
+.eslintrc.js
