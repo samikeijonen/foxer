@@ -55,7 +55,7 @@ function handleErrors() {
  * Delete style.css and style.min.css before we minify and optimize
  */
 gulp.task( 'clean:styles', () =>
-	del( [ config.styleName, config.styleMinName ] )
+	del( [ `${config.styleDestination}/${config.styleName}`, `${config.styleDestination}/${config.styleMinName}` ] )
 );
 
 /**
@@ -106,12 +106,12 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
  * https://www.npmjs.com/package/gulp-cssnano
  */
 gulp.task( 'cssnano', [ 'postcss' ], () =>
-	gulp.src( config.styleName )
+	gulp.src( `${config.styleDestination}/${config.styleName}` )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( cssnano( {
 			'safe': true // Use safe optimizations.
 		} ) )
-		.pipe( rename( config.styleMinName ) )
+		.pipe( rename( {'suffix': '.min'} ) )
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( browserSync.stream() )
 );
@@ -209,11 +209,47 @@ gulp.task( 'concat', () =>
 		// Concatenate partials into a single script.
 		.pipe( concat( config.jsConcatFile ) )
 
-		// Append the sourcemap to project.js.
+		// Append the sourcemap.
 		.pipe( sourcemaps.write() )
 
-		// Save project.js
+		// Save JS file.
 		.pipe( gulp.dest( config.jsConcatDST ) )
+		.pipe( browserSync.stream() )
+);
+
+/**
+ * Compile JavaScript trough babel.
+ *
+ * https://github.com/babel/gulp-babel
+ * https://www.npmjs.com/package/gulp-sourcemaps
+ */
+gulp.task( 'compile', () =>
+	gulp.src( config.jsSRC )
+
+		// Deal with errors.
+		.pipe( plumber(
+			{'errorHandler': handleErrors}
+		) )
+
+		// Start a sourcemap.
+		.pipe( sourcemaps.init() )
+
+		// Convert ES6+ to ES2015.
+		.pipe( babel( {
+			'presets': [
+				[ 'env', {
+					'targets': {
+						'browsers': config.browserList
+					}
+				} ]
+			]
+		} ) )
+
+		// Append the sourcemap.
+		.pipe( sourcemaps.write() )
+
+		// Save JS files.
+		.pipe( gulp.dest( config.jsDST ) )
 		.pipe( browserSync.stream() )
 );
 
@@ -222,20 +258,10 @@ gulp.task( 'concat', () =>
   *
   * https://www.npmjs.com/package/gulp-uglify
   */
-gulp.task( 'uglify', [ 'concat' ], () =>
+gulp.task( 'uglify', [ 'concat', 'compile' ], () =>
 	gulp.src( config.jsSRC )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( rename( {'suffix': '.min'} ) )
-		.pipe( babel( {
-			'presets': [
-				[ 'env', {
-					'targets': {
-						'browsers': config.browserList
-					},
-					'modules': false // Disable strict mode for now.
-				} ]
-			]
-		} ) )
 		.pipe( uglify( {
 			'mangle': false
 		} ) )

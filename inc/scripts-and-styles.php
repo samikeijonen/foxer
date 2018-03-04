@@ -16,13 +16,13 @@ function foxer_scripts() {
 	wp_enqueue_style( ' foxer-fonts', foxer_fonts_url(), [], null );
 
 	// Main styles.
-	wp_enqueue_style( ' foxer-style', get_stylesheet_uri() );
+	wp_enqueue_style( ' foxer-style', get_parent_theme_file_uri( '/dist/styles/style' . $suffix . '.css' ), [], '20180101' );
 
 	// Main scripts.
-	wp_enqueue_script( ' foxer-navigation', get_theme_file_uri( '/assets/js/navigation' . $suffix . '.js' ), [], '20180101', true );
+	wp_enqueue_script( ' foxer-navigation', get_theme_file_uri( '/dist/scripts/navigation' . $suffix . '.js' ), [], '20180101', true );
 
 	// Skip link for older browsers (IE 11).
-	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix' . $suffix . '.js' ), [], '20180101', true );
+	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/dist/scripts/skip-link-focus-fix' . $suffix . '.js' ), [], '20180101', true );
 
 	// Comments JS.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
