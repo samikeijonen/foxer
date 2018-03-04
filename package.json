@@ -32,7 +32,6 @@
     "gulp-svgmin": "~1",
     "gulp-svgstore": "~6",
     "gulp-uglify": "~3",
-    "gulp-util": "~3",
     "gulp-wp-pot": "~2",
     "sassdoc": "~2"
   },

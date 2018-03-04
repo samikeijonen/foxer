@@ -17,7 +17,6 @@ const del = require( 'del' );
 const eslint = require( 'gulp-eslint' );
 const fs = require( 'fs' );
 const gulp = require( 'gulp' );
-const gutil = require( 'gulp-util' );
 const imagemin = require( 'gulp-imagemin' );
 const mqpacker = require( 'css-mqpacker' );
 const neat = require( 'bourbon-neat' ).includePaths;
@@ -47,8 +46,6 @@ function handleErrors() {
 		'message': 'See console.',
 		'sound': 'Sosumi' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
 	} ).apply( this, args );
-
-	gutil.beep(); // Beep 'sosumi' again.
 
 	// Prevent the 'watch' task from stopping.
 	this.emit( 'end' );
