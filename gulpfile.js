@@ -153,7 +153,7 @@ gulp.task( 'svg', [ 'clean:icons' ], () =>
 			'parserOptions': {'xmlMode': true}
 		} ) )
 
-		// Save svg-icons.svg.
+		// Save SVG sprite.
 		.pipe( gulp.dest( config.svgDST ) )
 		.pipe( browserSync.stream() )
 );

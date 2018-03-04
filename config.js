@@ -49,20 +49,20 @@ module.exports = {
 	jsConcatFile: 'project.js',                  // Compiled JS custom file name. Default set to custom i.e. project.js.
 
 	// Images options.
-	imgSRC: [ 'assets/images/*', '!assets/images/*.svg' ], // Source folder of images which should be optimized and watched.
-	imgDST: './assets/images/',                            // Destination folder of optimized images. Must be different from the imagesSRC folder.
+	imgSRC: [ 'assets/images/*' ], // Source folder of images which should be optimized and watched.
+	imgDST: './dist/images/',      // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 	// SVG options.
-	svgSprite: './assets/images/svg-icons.svg', // SVG sprite file.
-	svgSRC: './assets/images/svg-icons/*.svg',  // Source folder of SVG icons.
-	svgDST: './assets/images/',                 // Destination folder of svg sprite file. Must be different from the svgSRC folder.
+	svgSprite: './dist/images/svg-icons.svg', // SVG sprite file.
+	svgSRC: './assets/svg-icons/*.svg',       // Source folder of SVG icons.
+	svgDST: './dist/images/',                 // Destination folder of svg sprite file. Must be different from the svgSRC folder.
 
 	// Watch files paths.
 	styleWatchFiles: 'assets/styles/**/*.scss',       // Path to all *.scss files inside css folder and inside them.
 	vendorJSWatchFiles: 'assets/scripts/vendor/*.js', // Path to all vendor JS files.
 	customJSWatchFiles: 'assets/scripts/custom/*.js', // Path to all custom JS files.
 	PHPWatchFiles: '**/*.php',                        // Path to all PHP files.
-	SVGWatchFiles: 'assets/images/svg-icons/*.svg',   // Path to all SVG files.
+	SVGWatchFiles: 'assets/svg-icons/*.svg',          // Path to all SVG files.
 
 	// Translation options.
 	textDomain: 'foxer',           // Your textdomain here.
