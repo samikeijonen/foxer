@@ -29,18 +29,18 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: comments.php:34
+#: comments.php:35
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: comments.php:40
+#: comments.php:41
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:63
+#: comments.php:66
 msgid "Comments are closed."
 msgstr ""
 
@@ -48,23 +48,23 @@ msgstr ""
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:18
+#: footer.php:19
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:23
+#: footer.php:25
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:47
+#: functions.php:46
 msgid "Primary"
 msgstr ""
 
-#: functions.php:105
+#: functions.php:117
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:107
+#: functions.php:119
 msgid "Add widgets here."
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:46
+#: header.php:51
 msgid "Primary Menu"
 msgstr ""
 
@@ -98,39 +98,39 @@ msgstr ""
 msgid "Please define an SVG icon filename."
 msgstr ""
 
-#: inc/template-tags.php:29
+#: inc/template-tags.php:28
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:35
+#: inc/template-tags.php:34
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:52
+#: inc/template-tags.php:49
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:55
+#: inc/template-tags.php:52
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:59
+#: inc/template-tags.php:56
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:62
+#: inc/template-tags.php:59
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
+#: inc/template-tags.php:69
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:89, template-parts/content-page.php:37
+#: inc/template-tags.php:86, template-parts/content-page.php:37
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
@@ -138,11 +138,11 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:25
+#: template-parts/content-none.php:24
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:38
+#: template-parts/content-none.php:37
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
