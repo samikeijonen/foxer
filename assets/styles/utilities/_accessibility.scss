@@ -13,20 +13,19 @@
 	word-wrap: normal !important;
 
 	&:focus {
-		background-color: $color-background-screen;
-		border-radius: 3px;
+		background-color: $color-darkest;
 		clip: auto !important;
 		clip-path: none;
-		color: $color-text-screen;
+		color: $color-white;
 		display: block;
 		@include font-size(0.875);
 		font-weight: bold;
 		height: auto;
-		left: 5px;
+		left: 0.5rem;
 		line-height: normal;
-		padding: 15px 23px 14px;
+		padding: 0.5rem 1rem;
 		text-decoration: none;
-		top: 5px;
+		top: 0.5rem;
 		width: auto;
 		/* Above WP toolbar. */
 		z-index: 100000;

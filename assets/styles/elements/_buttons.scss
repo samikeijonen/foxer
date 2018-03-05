@@ -2,21 +2,16 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color-border-button;
-	border-radius: 3px;
-	background: $color-background-button;
-	color: rgba(0, 0, 0, .8);
 	@include font-size(0.75);
-	line-height: 1;
-	padding: .6em 1em .4em;
+	background-color: $color-darkest;
+	border: 1px solid $color-darkest;
+	color: $color-white;
+	line-height: 1.25;
+	padding: 0.5rem 1rem;
 
-	&:hover {
-		border-color: $color-border-button-hover;
-	}
-
+	&:hover,
 	&:active,
 	&:focus {
-		border-color: $color-border-button-focus;
+		background-color : $color-dark;
 	}
 }

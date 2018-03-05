@@ -1,14 +1,11 @@
 a {
-	color: $color-link;
+	color: $color-darker;
 
-	&:visited {
-		color: $color-link-visited;
-	}
-
+	&:visited,
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color-link-hover;
+		color: $color-darker;
 	}
 
 	&:focus {

@@ -10,8 +10,3 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-
-// Column width with margin
-@mixin column-width($number-columns: 3) {
-	width: map-get( $columns, $number-columns ) - ( ( $columns__margin * ( $number-columns - 1 ) ) / $number-columns );
-}
