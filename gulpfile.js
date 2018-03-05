@@ -256,7 +256,7 @@ gulp.task( 'compile', () =>
   * https://www.npmjs.com/package/gulp-uglify
   */
 gulp.task( 'uglify', [ 'concat', 'compile' ], () =>
-	gulp.src( config.jsSRC )
+	gulp.src( config.jsDistSRC )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( rename( {'suffix': '.min'} ) )
 		.pipe( uglify( {

@@ -31,7 +31,8 @@ module.exports = {
 	],
 
 	// JS Vendor options.
-	jsSRC: [ 'assets/scripts/*.js', '!assets/scripts/*.min.js' ], // Path to JS folder.
+	jsSRC: [ 'assets/scripts/*.js', '!assets/scripts/*.min.js' ], // All JS files.
+	jsDistSRC: [ 'dist/scripts/*.js', '!dist/scripts/*.min.js' ], // All JS dist files.
 	jsDST: './dist/scripts/',                                     // Path to place the compiled JS vendors file.
 	JSLint: [
 		'assets/scripts/concat/*.js',
