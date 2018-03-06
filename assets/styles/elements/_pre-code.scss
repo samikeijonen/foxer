@@ -1,7 +1,7 @@
 pre {
+	@include font-size(1.125rem);
 	background-color: $color-lightest;
 	font-family: $font-pre;
-	@include font-size(1.125rem);
 	margin-bottom: $global-spacing-unit;
 	max-width: 100%;
 	overflow: auto;
