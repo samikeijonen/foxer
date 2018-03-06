@@ -1,9 +1,5 @@
-/* Fallback for when there is no custom background color defined. */
-body {
-	background: $color-white;
-}
-
-@import "typography";
+@import "page";
+@import "headings";
 @import "forms";
 @import "buttons";
 @import "blockquote";

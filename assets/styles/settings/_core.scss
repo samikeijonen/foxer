@@ -26,9 +26,13 @@ $global-spacing-unit-large: $global-baseline * $global-factor-large !default;
 $global-spacing-unit-huge:  $global-baseline * $global-factor-huge !default;
 
 /// Base typographical styles.
+/// Global font size.
+$global-font-size: 1rem !default;
 
-$global-font-size:   1rem !default;
-$global-line-height: $global-spacing-unit / $global-font-size !default;
+/// Global line height.
+$global-lines: ceil($global-font-size / $global-baseline) + 1;
+$line-height: $global-lines * $global-baseline;
+$global-line-height: ($line-height / $global-font-size) !default;
 
 /// Columns for old gallery markup.
 $columns: (
