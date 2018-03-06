@@ -73,23 +73,21 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Layouts - class-based undecorated design patterns.
 --------------------------------------------------------------*/
-// @import "layouts/content-sidebar";
-// @import "layouts/sidebar-content";
 
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-@import 'layouts/posts-and-pages';
+@import 'components/posts-and-pages';
 
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-@import 'layouts/comments';
+@import 'components/comments';
 
 /*--------------------------------------------------------------
 ## Widgets
 --------------------------------------------------------------*/
-@import 'layouts/widgets';
+@import 'components/widgets';
 
 /*--------------------------------------------------------------
 # Components - specific UI components.
