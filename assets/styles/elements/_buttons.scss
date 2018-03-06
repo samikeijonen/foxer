@@ -2,16 +2,14 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	@include font-size(0.75);
 	background-color: $color-darkest;
-	border: 1px solid $color-darkest;
+	border: none;
 	color: $color-white;
-	line-height: 1.25;
 	padding: 0.5rem 1rem;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color : $color-dark;
+		background-color: $color-dark;
 	}
 }

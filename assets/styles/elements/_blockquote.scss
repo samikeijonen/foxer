@@ -1,3 +1,11 @@
 blockquote {
-	margin: 0 1.5rem;
+	@include font-size(1.25rem);
+	border-left: 0.25rem solid;
+	font-style: italic;
+	margin: 0 0 $global-spacing-unit 0;
+	padding-left: $global-spacing-unit;
+
+	& p:last-child {
+		margin-bottom: 0;
+	}
 }

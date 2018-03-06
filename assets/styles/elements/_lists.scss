@@ -1,6 +1,7 @@
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 $global-spacing-unit $global-spacing-unit-small;
+	padding: 0;
 }
 
 ul {
@@ -11,10 +12,13 @@ ol {
 	list-style: decimal;
 }
 
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+li > {
+	ul,
+	ol {
+		margin-bottom: 0;
+		margin-left: $global-spacing-unit-small;
+		padding-left: $global-spacing-unit-small;
+	}
 }
 
 dt {
@@ -22,5 +26,5 @@ dt {
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 $global-spacing-unit $global-spacing-unit;
 }

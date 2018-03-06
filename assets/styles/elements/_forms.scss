@@ -13,15 +13,20 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-textarea {
-	border: 1px solid $color-light;
-	padding: 0.5rem;
-}
-
+textarea,
 select {
-	border: 1px solid $color-light;
+	border: 2px solid $color-light;
+	padding: calc(0.5rem - 2px);
+	width: 100%;
 }
 
 textarea {
-	width: 100%;
+	// Removes empty space under textarea.
+	display: block;
+	min-height: $global-spacing-unit-huge;
+}
+
+label {
+	display: block;
+	font-weight: 700;
 }

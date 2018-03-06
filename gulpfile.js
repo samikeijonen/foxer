@@ -76,7 +76,8 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
 			// Compile Sass using LibSass.
 			.pipe( sass( {
 				'errLogToConsole': config.errLogToConsole,
-				'outputStyle': config.outputStyle
+				'outputStyle': config.outputStyle,
+				'precision': config.precision
 			} ) )
 
 			// Parse with PostCSS plugins.

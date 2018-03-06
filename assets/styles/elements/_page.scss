@@ -5,11 +5,21 @@ html {
 	line-height: $global-line-height;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
 // Fallback for when there is no custom background color defined.
 body {
 	background: $color-white;
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin: 0 0 $global-spacing-unit 0;
 }

@@ -13,14 +13,11 @@
 # File Options
 files:
   ignore:
-   - 'assets/**/_colors.scss'
    - 'assets/**/_gravity-forms.scss'
-   - 'assets/**/_scaffolding.scss'
+   - 'assets/**/_normalize.scss'
    - 'assets/**/style.scss'
-   - 'bourbon-neat/app/**/*.scss'
-   - 'bourbon/app/**/*.scss'
-   - 'sass/tests/**/*.scss'
-   - 'sass/vendor/**/*.scss'
+   - 'assets/tests/**/*.scss'
+   - 'assets/vendor/**/*.scss'
 
 # Rule Configuration
 rules:
@@ -110,7 +107,7 @@ rules:
   nesting-depth:
   - 1
   -
-    max-depth: 4
+    max-depth: 3
 
   property-units:
     - 1

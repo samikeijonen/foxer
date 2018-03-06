@@ -19,23 +19,15 @@
 ///   // subtract 1 line:
 ///   @include inuit-font-size(2rem, $modifier: -1);
 
-@mixin font-size($font-size, $line-height: auto, $modifier: 0, $important: false) {
+@mixin font-size($font-size, $line-height: auto, $modifier: 0) {
 
 	@if (type-of($font-size) == number) {
 	} @else {
 		@error "`#{$font-size}` needs to be a number.";
 	}
 
-	@if ($important == true) {
-		$important: !important;
-	} @else if ($important == false) {
-		$important: null;
-	} @else {
-		@error "`#{$important}` needs to be `true` or `false`.";
-	}
-
 	/// We provide font size in `rem` values.
-	font-size: ($font-size / $global-font-size) * 1rem $important;
+	font-size: ($font-size / $global-font-size) * 1rem;
 
 	@if ($line-height == "auto") {
 
@@ -46,13 +38,13 @@
 		$lines: ceil($font-size / $global-baseline) + $modifier + 1;
 		$line-height: $lines * $global-baseline;
 
-		line-height: ($line-height / $font-size) $important;
+		line-height: ($line-height / $font-size);
 	} @else {
 
 		@if (type-of($line-height) == number or $line-height == "inherit" or $line-height == "normal") {
-			line-height: $line-height $important;
-		} @else if ($line-height != 'none' and $line-height != false) {
-			@error "D’oh! `#{$line-height}` is not a valid value for `$line-height`."
+			line-height: $line-height;
+		} @else if ($line-height != "none" and $line-height != false) {
+			@error "D’oh! `#{$line-height}` is not a valid value for `$line-height`.";
 		}
 
 	}
