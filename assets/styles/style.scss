@@ -44,6 +44,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 // Settings - Global variables, config switches.
 @import 'settings/core';
+@import 'settings/fonts';
+@import 'settings/colors';
 
 // Tools - Default mixins and functions.
 @import 'tools/mixins';
