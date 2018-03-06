@@ -23,10 +23,10 @@
 		display: block;
 		font-weight: bold;
 		height: auto;
-		left: 0.5rem;
-		padding: 0.5rem 1rem;
+		left: $global-spacing-unit-tiny;
+		padding: $global-spacing-unit-tiny $global-spacing-unit-small;
 		text-decoration: none;
-		top: 0.5rem;
+		top: $global-spacing-unit-tiny;
 		width: auto;
 		// Above WP toolbar.
 		z-index: 100000;
