@@ -6,8 +6,8 @@ optgroup,
 textarea {
 	color: $color-darkest;
 	font-family: $font-main;
-	@include font-size(1);
-	line-height: $font-line-height-body;
+	font-size: $global-font-size;
+	line-height: $global-line-height;
 }
 
 h1,

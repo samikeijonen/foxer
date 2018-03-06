@@ -1,12 +1,11 @@
 pre {
 	background-color: $color-lightest;
 	font-family: $font-pre;
-	@include font-size(0.9375);
-	line-height: $font-line-height-pre;
-	margin-bottom: 1.6em;
+	@include font-size(1.125rem);
+	margin-bottom: $global-spacing-unit;
 	max-width: 100%;
 	overflow: auto;
-	padding: 1.6em;
+	padding: $global-spacing-unit;
 }
 
 code,
@@ -14,5 +13,4 @@ kbd,
 tt,
 var {
 	font-family: $font-code;
-	@include font-size(0.9375);
 }
