@@ -2,9 +2,9 @@ html {
 	box-sizing: border-box;
 }
 
-/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+// Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 *,
-*:before,
-*:after {
+*::before,
+*::after {
 	box-sizing: inherit;
 }
