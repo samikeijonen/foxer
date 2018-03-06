@@ -24,6 +24,9 @@ function foxer_scripts() {
 	// Skip link for older browsers (IE 11).
 	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/dist/scripts/skip-link-focus-fix' . $suffix . '.js' ), [], '20180101', true );
 
+	// Dequeue Core block styles.
+	wp_dequeue_style( 'wp-blocks' );
+
 	// Comments JS.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
