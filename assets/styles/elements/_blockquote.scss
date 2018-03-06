@@ -2,7 +2,7 @@ blockquote {
 	@include font-size(1.25rem);
 	border-left: 0.25rem solid;
 	font-style: italic;
-	margin: 0 0 $global-spacing-unit 0;
+	margin: 0 0 $global-spacing-unit;
 	padding-left: $global-spacing-unit;
 
 	& p:last-child {

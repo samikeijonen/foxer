@@ -27,11 +27,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Normalize
 	## Box Sizing
 # Elements
-# Layouts
+# Components
 	## Posts and pages
 	## Comments
 	## Widgets
-# Components
 	## Navigation
 	## Media
 		## Captions
@@ -39,7 +38,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Utilities
 	## Accessibility
 	## Alignments
-	## Clearings
 --------------------------------------------------------------*/
 
 // Settings - Global variables, config switches.
@@ -71,7 +69,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import 'elements/elements';
 
 /*--------------------------------------------------------------
-# Layouts - class-based undecorated design patterns.
+# Components - specific UI components.
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -88,10 +86,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 ## Widgets
 --------------------------------------------------------------*/
 @import 'components/widgets';
-
-/*--------------------------------------------------------------
-# Components - specific UI components.
---------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 ## Navigation

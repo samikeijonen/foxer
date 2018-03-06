@@ -5,7 +5,7 @@ input[type="submit"] {
 	background-color: $color-darkest;
 	border: none;
 	color: $color-white;
-	padding: 0.5rem 1rem;
+	padding: $global-spacing-unit-tiny $global-spacing-unit-small;
 
 	&:hover,
 	&:active,
