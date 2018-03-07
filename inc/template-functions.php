@@ -6,6 +6,27 @@
  */
 
 /**
+ * Remove hentry and add entry at the same time.
+ *
+ * @since  1.0.0
+ * @param  array $classes Post classes.
+ * @return array $classes Modified post classes.
+ */
+function foxer_entry_classes( $classes ) {
+	// Remove .hentry class.
+	$key = array_search( 'hentry', $classes, true );
+	if ( false !== $key ) {
+		unset( $classes[ $key ] );
+	}
+
+	// Add entry class for Schema.org markup.
+	$classes[] = 'entry';
+
+	return $classes;
+}
+add_filter( 'post_class', 'foxer_entry_classes' );
+
+/**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
