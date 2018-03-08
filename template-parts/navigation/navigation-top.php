@@ -10,8 +10,8 @@ if ( ! has_nav_menu( 'top' ) ) :
 endif;
 ?>
 
-<nav id="site-navigation" class="menu menu--top">
-	<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'foxer' ); ?></button>
+<nav id="js-site-navigation" class="menu menu--top">
+	<button type="button" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'foxer' ); ?></button>
 	<?php
 		wp_nav_menu( [
 			'container'      => '',
