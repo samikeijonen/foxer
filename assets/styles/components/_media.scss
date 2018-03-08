@@ -1,10 +1,15 @@
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
+.wp-smiley,
+.emoji {
+	// sass-lint:disable-block property-units
+	background: none;
 	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
+	box-shadow: none;
+	display: inline-block;
+	margin: 0 0.07em;
+	max-height: 1em;
 	padding: 0;
+	vertical-align: -0.1em;
+	width: 1em;
 }
 
 // Make sure logo link wraps around logo image.
