@@ -82,7 +82,7 @@ rules:
     style: 1tbs
     allow-single-line: false
   class-name-format:
-  - 1
+  - 0
   -
     allow-leading-underscore: false
     convention-explanation: Please use hypenated lowercase for class names, and without a leading underscore. If you find a WordPress core condition that conflicts with this convention feel free to modify and extend the ignore option.
