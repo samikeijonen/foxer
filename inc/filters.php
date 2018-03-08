@@ -51,7 +51,7 @@ function foxer_nav_menu_link_attr( $atts, $item, $args, $depth ) {
 
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'foxer_nav_menu_link_attr', 11, 4 );
+add_filter( 'nav_menu_link_attributes', 'foxer_nav_menu_link_attr', 5, 4 );
 
 /**
  * Filters the CSS class(es) applied to a menu item's list item element.
