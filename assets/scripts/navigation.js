@@ -7,7 +7,7 @@
 ( function() {
 	var container, button, menu, links, i, len;
 
-	container = document.getElementById( 'site-navigation' );
+	container = document.getElementById( 'js-site-navigation' );
 	if ( ! container ) {
 		return;
 	}
@@ -26,26 +26,21 @@
 	}
 
 	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
+	if ( ! menu.classList.contains( 'js-nav-menu' ) ) {
+		menu.classList.add( 'js-nav-menu' );
 	}
 
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'is-toggled' ) ) {
-			container.className = container.className.replace( ' is-toggled', '' );
-			menu.className = menu.className.replace( ' is-toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' is-toggled';
-			menu.className += ' is-toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
-		}
-	};
+	button.addEventListener( 'click', function() {
+		container.classList.toggle( 'is-toggled' );
+		menu.classList.toggle( 'is-toggled' );
+		button.classList.toggle( 'is-toggled' );
+
+		let expanded = ( 'false' === button.getAttribute( 'aria-expanded' ) ) ? 'true' : 'false';
+		button.setAttribute( 'aria-expanded', expanded );
+	} );
 
 	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
+	links = menu.getElementsByTagName( 'a' );
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {
@@ -59,8 +54,8 @@
 	function toggleFocus() {
 		var self = this;
 
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+		// Move up through the ancestors of the current link until we hit .js-nav-menu.
+		while ( -1 === self.className.indexOf( 'js-nav-menu' ) ) {
 
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
