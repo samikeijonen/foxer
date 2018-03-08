@@ -1,117 +1,59 @@
-/*!
-Theme Name: Foxer
-Theme URI: https://foxland.fi/
-Author: Sami Keijonen
-Author URI: https://foxnet.fi/
-Description: Hi. I'm a starter theme called <code>Foxer</code>. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: foxer
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Foxer is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
+/**
+ * Main stylesheet for the Foxer theme.
+ *
+ * Theme styles follow http://cssguidelin.es/ and are organized according to
+ * Inverted Triangle CSS (ITCSS) principles put forth by Harry Roberts. In
+ * short, each layer of CSS gets more specific as you move down this page.
+ */
 
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Generic
-	## Normalize
-	## Box Sizing
-# Elements
-# Components
-	## Posts and pages
-	## Comments
-	## Widgets
-	## Navigation
-	## Media
-		## Captions
-		## Galleries
-# Utilities
-	## Accessibility
-	## Alignments
+# Settings - Global variables, config switches.
 --------------------------------------------------------------*/
-
-// Settings - Global variables, config switches.
 @import 'settings/core';
 @import 'settings/fonts';
 @import 'settings/colors';
 
-// Tools - Default mixins and functions.
+/*--------------------------------------------------------------
+# Tools - Default mixins and functions.
+--------------------------------------------------------------*/
 @import 'tools/mixins';
 @import 'tools/font-size';
 
 /*--------------------------------------------------------------
 # Generic - Ground-zero styles (resets, box-sizing, etc.).
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Normalize
---------------------------------------------------------------*/
 @import 'generic/normalize';
-
-/*--------------------------------------------------------------
-## Box sizing
---------------------------------------------------------------*/
 @import 'generic/box-sizing';
 
 /*--------------------------------------------------------------
-# Elements
+# Elements - Unclassed HTML elements (type selectors).
 --------------------------------------------------------------*/
-@import 'elements/elements';
+@import 'elements/page';
+@import 'elements/blockquote';
+@import 'elements/buttons';
+@import 'elements/forms';
+@import 'elements/headings';
+@import 'elements/hr';
+@import 'elements/links';
+@import 'elements/lists';
+@import 'elements/media';
+@import 'elements/misc';
+@import 'elements/pre-code';
+@import 'elements/tables';
 
 /*--------------------------------------------------------------
 # Components - specific UI components.
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
-@import 'components/posts-and-pages';
-
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
 @import 'components/comments';
-
-/*--------------------------------------------------------------
-## Widgets
---------------------------------------------------------------*/
-@import 'components/widgets';
-
-/*--------------------------------------------------------------
-## Navigation
---------------------------------------------------------------*/
-@import 'components/navigation';
-
-/*--------------------------------------------------------------
-## Media
---------------------------------------------------------------*/
+@import 'components/galleries';
 @import 'components/media';
+@import 'components/navigation';
+@import 'components/posts-and-pages';
+@import 'components/widgets';
 
 /*--------------------------------------------------------------
 # Utilities - Helpers and overrides.
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Accessibility
---------------------------------------------------------------*/
 @import 'utilities/accessibility';
-
-/*--------------------------------------------------------------
-## Alignments
---------------------------------------------------------------*/
 @import 'utilities/alignments';
-
-/*--------------------------------------------------------------
-## Icons
---------------------------------------------------------------*/
 @import 'utilities/icons';
