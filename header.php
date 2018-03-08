@@ -25,35 +25,27 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'foxer' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		<div class="site-header__branding">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php
 			endif;
 
 			$foxer_description = get_bloginfo( 'description', 'display' );
 			if ( $foxer_description || is_customize_preview() ) :
 			?>
-				<p class="site-description"><?php echo $foxer_description; /* WPCS: xss ok. */ ?></p>
+				<p class="site-header__description"><?php echo $foxer_description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif;
 			?>
-		</div><!-- .site-branding -->
+		</div><!-- .site-header__branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'foxer' ); ?></button>
-			<?php
-				wp_nav_menu( [
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				] );
-			?>
-		</nav><!-- #site-navigation -->
+		<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
 	</header><!-- #masthead -->

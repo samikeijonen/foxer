@@ -26,6 +26,8 @@
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+
+	<?php get_template_part( 'template-parts/navigation/navigation', 'social' ); ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

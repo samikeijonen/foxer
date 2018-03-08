@@ -41,9 +41,10 @@ function foxer_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two location.
 	register_nav_menus( [
-		'menu-1' => esc_html__( 'Primary', 'foxer' ),
+		'top'    => esc_html__( 'Top menu', 'foxer' ),
+		'social' => esc_html__( 'Social links menu', 'foxer' ),
 	] );
 
 	/*
@@ -153,7 +154,7 @@ require get_parent_theme_file_path( '/inc/template-tags.php' );
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_parent_theme_file_path( '/inc/template-functions.php' );
+require get_parent_theme_file_path( '/inc/filters.php' );
 
 /**
  * Customizer additions.

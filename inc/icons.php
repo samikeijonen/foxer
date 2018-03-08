@@ -148,7 +148,7 @@ add_filter( 'walker_nav_menu_start_el', 'foxer_nav_menu_social_icons', 10, 4 );
  * @return string  $title The menu item's title with dropdown icon.
  */
 function foxer_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	if ( 'menu-1' === $args->theme_location ) {
+	if ( 'top' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
 				$title = $title . foxer_get_svg( [ 'icon' => 'angle-down' ] );
