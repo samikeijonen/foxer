@@ -58,18 +58,18 @@ add_filter( 'nav_menu_link_attributes', 'foxer_nav_menu_link_attr', 5, 4 );
  * @param int      $depth   Depth of menu item. Used for padding.
  */
 function foxer_nav_menu_css_class( $classes, $item, $args, $depth ) {
-	$classes[]    = 'menu__item';
-	$replacements = [
-		'current-menu-item',
-		'current-menu-parent',
-		'current-menu-ancestor',
-		'current_page_item',
-		'current_page_parent',
-		'current_page_ancestor',
-	];
+	$classes[] = 'menu__item';
 
-	if ( array_intersect( $replacements, $classes ) ) {
+	if ( in_array( 'current-menu-item', $classes, true ) ) {
 		$classes[] = 'menu__item--active';
+	}
+
+	if ( in_array( 'current-menu-parent', $classes, true ) ) {
+		$classes[] = 'menu__item--parent';
+	}
+
+	if ( in_array( 'current-menu-ancestor', $classes, true ) ) {
+		$classes[] = 'menu__item--ancestor';
 	}
 
 	return $classes;
