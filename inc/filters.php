@@ -45,9 +45,13 @@ add_filter( 'post_class', 'foxer_entry_classes' );
 function foxer_nav_menu_link_attr( $atts, $item, $args, $depth ) {
 	$atts['class'] = 'menu__anchor menu__anchor--' . $args->theme_location;
 
+	if ( in_array( 'current-menu-item', $item->classes, true ) ) {
+		$atts['class'] .= ' is-active';
+	}
+
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'foxer_nav_menu_link_attr', 5, 4 );
+add_filter( 'nav_menu_link_attributes', 'foxer_nav_menu_link_attr', 11, 4 );
 
 /**
  * Filters the CSS class(es) applied to a menu item's list item element.
