@@ -62,7 +62,7 @@ before_script:
     - if [[ "$SNIFF" == "1" ]]; then phpenv rehash; fi
     # Install eslint and sass-lint.
     # @link https://eslint.org/
-    - if [[ "$SNIFF" == "1" ]]; then npm install eslint eslint-config-wordpress stylelint stylelint-config-wordpress; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm install -g eslint eslint-config-wordpress; fi
 
 # Run test script commands.
 # Default is specific to project language.
@@ -73,7 +73,7 @@ script:
     # Run the theme through ESLint.
     - if [[ "$SNIFF" == "1" ]]; then eslint --config ./.eslintrc.js .; fi
     # Run the theme through stylelint.
-    - if [[ "$SNIFF" == "1" ]]; then stylelint './assets/sass/**/*.scss' --config ./.stylelintrc .; fi
+    #- if [[ "$SNIFF" == "1" ]]; then stylelint './assets/sass/**/*.scss' --config ./.stylelintrc .; fi
     # WordPress Coding Standards.
     # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
     # @link https://pear.php.net/package/PHP_CodeSniffer/
