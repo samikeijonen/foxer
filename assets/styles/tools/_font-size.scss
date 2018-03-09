@@ -1,5 +1,6 @@
 /// Generates a rem font-size and a baseline-compatible
 /// unitless line-height from font-size value.
+///
 /// You can also modify the line-height by increments, while staying in the
 /// baseline grid, by setting the `$modifier` parameter.
 ///
@@ -25,14 +26,13 @@
 ///
 /// @example scss - Example 4, subtract -0.5 lines:
 ///		@include font-size(0.875rem, $modifier: -0.5);
-
 @mixin font-size($font-size, $line-height: auto, $modifier: 0) {
 
 	@if (type-of($font-size) != number) {
 		@error "`#{$font-size}` needs to be a number.";
 	}
 
-	// We provide font size in `rem` values.
+	// We provide font size in rem values.
 	font-size: ($font-size / $global-font-size) * 1rem;
 
 	@if ($line-height == "auto") {
