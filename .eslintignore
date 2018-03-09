@@ -1,4 +1,5 @@
 dist/scripts/*.js
+docs
 gulpfile.js
 config.js
 .eslintrc.js
