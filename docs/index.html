@@ -1,124 +1,181 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Foxer - v1.0.0</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Foxer - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>A starter theme by Sami Keijonen, based on foxer.</p>
-"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/samikeijonen/foxer/#readme">Foxer - v1.0.0</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="mixins"><a href="#mixins">mixins</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins-mixin"><a href="#mixins-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="font-size" data-type="mixin"><a href="#mixins-mixin-font-size">font-size</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="center-block" data-type="mixin"><a href="#mixins-mixin-center-block">center-block</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="reset-margin-padding" data-type="mixin"><a href="#mixins-mixin-reset-margin-padding">reset-margin-padding</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="reset-list" data-type="mixin"><a href="#mixins-mixin-reset-list">reset-list</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-css"><a href="#undefined-css">csss</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="embed,
-iframe,
-object" data-type="css"><a href="#undefined-css-embed,
-iframe,
-object">embed, iframe, object</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="img" data-type="css"><a href="#undefined-css-img">img</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".screen-reader-text" data-type="css"><a href="#undefined-css-.screen-reader-text">.screen-reader-text</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="variables"><a href="#variables">variables</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="variables-variable"><a href="#variables-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="variables" data-name="global-factor-tiny" data-type="variable"><a href="#variables-variable-global-factor-tiny">global-factor-tiny</a></li><li class="sidebar__item sassdoc__item" data-group="variables" data-name="global-spacing-unit" data-type="variable"><a href="#variables-variable-global-spacing-unit">global-spacing-unit</a></li><li class="sidebar__item sassdoc__item" data-group="variables" data-name="global-font-size" data-type="variable"><a href="#variables-variable-global-font-size">global-font-size</a></li><li class="sidebar__item sassdoc__item" data-group="variables" data-name="global-line-height" data-type="variable"><a href="#variables-variable-global-line-height">global-line-height</a></li><li class="sidebar__item sassdoc__item" data-group="variables" data-name="columns" data-type="variable"><a href="#variables-variable-columns">columns</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="mixins"><div class="container">mixins</div></h1><section class="main__sub-section" id="mixins-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins-mixin-font-size"><h3 class="item__heading"><a class="item__name" href="#mixin-font-size">font-size</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin font-size($font-size, $line-height: auto, $modifier: 0) { 
 
-	@if (type-of($font-size) != number) {
-		@error &quot;`#{$font-size}` needs to be a number.&quot;;
-	}
 
-	// We provide font size in rem values.
-	font-size: ($font-size / $global-font-size) * 1rem;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	@if ($line-height == &quot;auto&quot;) {
+  
+  <title>foxer Documentation</title>
 
-		// Define how many grid lines each text line should span.
-		// By default, we set it to the minimum number of lines necessary
-		// in order to contain the defined font-size, +1 for some breathing room.
-		// This can be modified with the `$modifier` parameter.
-		$lines: ceil($font-size / $global-baseline) + $modifier + 1;
-		$line-height: $lines * $global-baseline;
+  <link href="assets/img/favicon.ico" rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
 
-		line-height: ($line-height / $font-size);
-	}
+  <link rel="stylesheet" href="assets/webpack/app_styles.min.css" />
 
-	@else {
+  
 
-		@if (type-of($line-height) == number or $line-height == &quot;inherit&quot; or $line-height == &quot;normal&quot;) {
-			line-height: $line-height;
-		}
+  
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" hidden>
+  <symbol id="icon-logo" viewBox="0 0 16 16">
+    <path d="M.2 8L0 7.8v-.2C.8 6.9 1.9 5.9 2.7 5l.4.3c-.5.8-1.1 1.6-1.8 2.3 1 1.2 1 1.3 1.7 2.4l-.4.3c-.4-.4-.5-.6-1-1C1 8.6 1.1 8.7.2 8zM13 10c.6-1.1.7-1.1 1.7-2.4-.6-.6-1.3-1.5-1.7-2.3l.3-.3c.8.8 1.8 1.8 2.7 2.6v.2l-.8.7c-.3.3-1.2 1.1-1.8 1.7L13 10z"/><path d="M2.6 13.1H3c.9 0 1.1-.2 1.1-1.4V4.2c0-1.1-.2-1.4-1.1-1.4h-.4v-.6h4.5v.7h-.3c-.9 0-1.1.2-1.1 1.4v3.2h4.6V4.2c0-1.1-.2-1.4-1.1-1.4h-.3v-.6h4.5v.7H13c-.9 0-1.1.2-1.1 1.4v7.5c0 1.1.2 1.4 1.1 1.4h.4v.7H8.9v-.7h.3c.9 0 1.1-.2 1.1-1.4V8.2H5.7v3.5c0 1.1.2 1.4 1.1 1.4h.3v.7H2.6v-.7z"/>
+  </symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 28">
+    <path d="M24 21v2c0 .547-.453 1-1 1H1c-.547 0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547 0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547 0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547 0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547 0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547 0 1 .453 1 1z"/>
+  </symbol>
+</svg>
 
-		@else if ($line-height != &quot;none&quot; and $line-height != false) {
-			@error &quot;D’oh! `#{$line-height}` is not a valid value for `$line-height`.&quot;;
-		}
+  <div data-region="app">
+    <header data-region="banner">
+      
+  <button data-nav-toggle data-toggle="button" aria-controls="nav" aria-pressed="false" type="button" data-toggle-synced="false">
+    
+  <svg data-icon="menu" data-icon-size="nav-icon" ><title>menu</title><use xlink:href="#icon-menu" />
+  </svg>
 
-	}
+  </button>
 
- }" data-collapsed="@mixin font-size($font-size, $line-height: auto, $modifier: 0) { ... }"><code>@mixin font-size($font-size, $line-height: auto, $modifier: 0) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generates a rem font-size and a baseline-compatible unitless line-height from font-size value.</p><p>You can also modify the line-height by increments, while staying in the baseline grid, by setting the <code>$modifier</code> parameter.</p><p>It takes a positive or negative number, and it will add or remove &quot;lines&quot; to the generated line-height. This is the recomended way to do it, unless you really need an absolute value.</p><p>It is recommended to only add or subtract full integers or half steps.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-size</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$line-height</code></th><td data-label="desc"><p>Line height</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>auto</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$modifier</code></th><td data-label="desc"><p>Line modifier</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>0</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Example 1:</p></div><pre class="example__code language-scss"><code>@include font-size(1.25rem);</code></pre></div><div class="item__example example"><div class="example__description"><p>Example 2, force line-height:</p></div><pre class="example__code language-scss"><code>@include font-size(1rem, 1.5);</code></pre></div><div class="item__example example"><div class="example__description"><p>Example 3, add 2 lines:</p></div><pre class="example__code language-scss"><code>@include font-size(2rem, $modifier: +2);</code></pre></div><div class="item__example example"><div class="example__description"><p>Example 4, subtract -0.5 lines:</p></div><pre class="example__code language-scss"><code>@include font-size(0.875rem, $modifier: -0.5);</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p><code>#{$font-size}</code> needs to be a number.</p></li><li><p>D’oh! <code>#{$line-height}</code> is not a valid value for <code>$line-height</code>.</p></li></ul><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variables-variable-global-font-size"><code>global-font-size</code></a></li></ul></section><section class="main__item container item" id="mixins-mixin-center-block"><h3 class="item__heading"><a class="item__name" href="#mixin-center-block">center-block</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin center-block() { 
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
- }" data-collapsed="@mixin center-block() { ... }"><code>@mixin center-block() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Center any block element.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Basic Usage Sass</p></div><pre class="example__code language-scss"><code>.center-block {
-	@include center-block;
-  }</code></pre></div><div class="item__example example"><div class="example__description"><p>Basic Usage CSS Output</p></div><pre class="example__code language-css"><code>.center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}</code></pre></div></section><section class="main__item container item" id="mixins-mixin-reset-margin-padding"><h3 class="item__heading"><a class="item__name" href="#mixin-reset-margin-padding">reset-margin-padding</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin reset-margin-padding() { 
-	margin: 0;
-	padding: 0;
- }" data-collapsed="@mixin reset-margin-padding() { ... }"><code>@mixin reset-margin-padding() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Resets margin and padding on any element.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Basic Usage Sass</p></div><pre class="example__code language-scss"><code>.foo {
-	@include reset-margin-padding;
-}</code></pre></div><div class="item__example example"><div class="example__description"><p>Basic Usage CSS Output</p></div><pre class="example__code language-css"><code>.foo {
-	margin: 0;
-	padding: 0;
-}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixins-mixin-reset-list"><code>reset-list</code></a></li></ul></section><section class="main__item container item" id="mixins-mixin-reset-list"><h3 class="item__heading"><a class="item__name" href="#mixin-reset-list">reset-list</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin reset-list() { 
-	@include reset-margin-padding;
-	list-style-type: none;
- }" data-collapsed="@mixin reset-list() { ... }"><code>@mixin reset-list() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Reset all padding and styles on both unordered and ordered lists.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Basic Usage Sass</p></div><pre class="example__code language-scss"><code>.reset-list {
-	@include reset-list;
-  }</code></pre></div><div class="item__example example"><div class="example__description"><p>Basic Usage CSS Output</p></div><pre class="example__code language-css"><code>.reset-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixins-mixin-reset-margin-padding"><code>reset-margin-padding</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-css"><h2 class="main__heading--secondary"><div class="container">csss</div></h2><section class="main__item container item" id="undefined-css-embed,
-iframe,
-object"><h3 class="item__heading"><a class="item__name" href="#css-embed,
-iframe,
-object">embed, iframe, object</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>embed,
-iframe,
-object {
-  max-width: 100%;
-}</code>" data-collapsed="embed,
-iframe,
-object { ... }"><code>embed,
-iframe,
-object { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Make sure embeds and iframes fit their containers.</p></div></section><section class="main__item container item" id="undefined-css-img"><h3 class="item__heading"><a class="item__name" href="#css-img">img</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>img {
-  height: auto;
-	max-width: 100%;
-	// Removes the whitespace under img, safer than `display: block;`.
-	vertical-align: middle;
-}</code>" data-collapsed="img { ... }"><code>img { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Make sure images are scaled correctly.</p></div></section><section class="main__item container item" id="undefined-css-.screen-reader-text"><h3 class="item__heading"><a class="item__name" href="#css-.screen-reader-text">.screen-reader-text</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.screen-reader-text {
-  border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	// Many screen reader and browser combinations announce broken words
-	// as they would appear visually.
-	word-wrap: normal !important;
 
-	&amp;:focus {
-		@include font-size(0.875);
-		background-color: $color-darkest;
-		clip: auto !important;
-		clip-path: none;
-		color: $color-white;
-		display: block;
-		font-weight: 700;
-		height: auto;
-		left: $global-spacing-unit-tiny;
-		padding: $global-spacing-unit-tiny $global-spacing-unit-small;
-		text-decoration: none;
-		top: $global-spacing-unit-tiny;
-		width: auto;
-		// Above WP toolbar.
-		z-index: 100000;
-	}
-}</code>" data-collapsed=".screen-reader-text { ... }"><code>.screen-reader-text { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Text meant only for screen readers.</p></div></section></section></section><section class="main__section"><h1 class="main__heading" id="variables"><div class="container">variables</div></h1><section class="main__sub-section" id="variables-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="variables-variable-global-factor-tiny"><h3 class="item__heading"><a class="item__name" href="#variable-global-factor-tiny">global-factor-tiny</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-factor-tiny: 1 !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>How many grid lines should our spacing unit variants span? Each value should be an unitless integer.</p></div></section><section class="main__item container item" id="variables-variable-global-spacing-unit"><h3 class="item__heading"><a class="item__name" href="#variable-global-spacing-unit">global-spacing-unit</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-spacing-unit: $global-baseline * $global-factor !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Spacing values are determined based on your project’s global baseline grid. It is not recommended that you modify these following variables (it can break your vertical rhythm), but if you need to, you can.</p></div></section><section class="main__item container item" id="variables-variable-global-font-size"><h3 class="item__heading"><a class="item__name" href="#variable-global-font-size">global-font-size</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-font-size: 1rem !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Base typographical styles. Global font size.</p></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixins-mixin-font-size"><code>font-size</code></a></li></ul></section><section class="main__item container item" id="variables-variable-global-line-height"><h3 class="item__heading"><a class="item__name" href="#variable-global-line-height">global-line-height</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-line-height: ($line-height / $global-font-size) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Global line height.</p></div></section><section class="main__item container item" id="variables-variable-columns"><h3 class="item__heading"><a class="item__name" href="#variable-columns">columns</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$columns: (
-	1: 100%,
-	2: 50%,
-	3: 33.33%,
-	4: 25%,
-	5: 20%,
-	6: 16.66%,
-	7: 14.28%,
-	8: 12.5%,
-	9: 11.11%
-);</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Columns for old gallery markup.</p></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/samikeijonen/foxer/#readme">Foxer</a><!-- Version --> <span class="project-info__version">- v1.0.0</span><!-- License --> <span class="project-info__license">, under GPL-3.0</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
+      <div class="project-title">
+        <a href="index.html" rel="home" class="project-name">foxer</a>
+        
+          <span class="project-version">1.0.0</span>
+        
+      </div>
+    </header>
+
+    <div data-region="container">
+      
+  <nav data-region="nav" data-toggle="target" id="nav" data-target-id="nav" aria-expanded="false" data-auto-closing="false" data-auto-closing-on-any-click="false">
+    <form action="search.html">
+      <input type="text" name="q" placeholder="Search…" required minlength="3">
+    </form>
+
+    <div class="nav-subsection">
+      <h3 class="nav-home">
+        
+        <a href="index.html" data-nav="is-active">foxer</a>
+      </h3>
+
+      
+      
+    </div>
+
+    
+    <div class="nav-subsection">
+      <ul>
+  
+    <li class="nav-item">
+      <a href="undefined.html" data-nav="is-not-active">General</a>
+    </li>
+  
+  
+    <li class="nav-item">
+      <a href="mixins.html" data-nav="is-not-active">mixins</a>
+    </li>
+  
+  
+    <li class="nav-item">
+      <a href="variables.html" data-nav="is-not-active">variables</a>
+    </li>
+  </ul>
+    </div>
+
+    
+    
+
+    
+      <aside class="footer-credit">
+        <a href="http://oddbird.net/herman/" class="footer-icon">
+          
+  <svg data-icon="logo" data-icon-size="footer-logo" ><use xlink:href="#icon-logo" />
+  </svg>
+
+        </a>
+        <span>
+          Documented with
+          <a href="http://oddbird.net/herman/" class="footer-link">
+            Herman
+          </a>
+        </span>
+        <span>
+          by
+          <a href="http://oddbird.net/" class="footer-link">
+            OddBird
+          </a>
+        </span>
+      </aside>
+    
+  </nav>
+
+
+      <main data-region="main">
+        
+
+        <div data-page="index">
+          
+  
+  
+    <ul class="project-links">
+      
+        <li class="project-link-item">
+          <a href="https://github.com/samikeijonen/foxer/#readme" class="project-link">View Project</a>
+        </li>
+      
+      
+    </ul>
+  
+
+
+  <div class="text-block">
+    <p><a href="https://travis-ci.org/samikeijonen/foxer"><img src="https://travis-ci.org/samikeijonen/foxer.svg?branch=master" alt="Build Status"></a></p>
+<h1 id="foxer">Foxer</h1>
+<p>Hi. I’m a starter theme called <code>Foxer</code>. I’m a theme meant for hacking so don’t use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That’s what I’m here<span class="widont">&nbsp;</span>for.</p>
+<p>My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you’re designing your awesome theme. Here are some of the other more interesting things you’ll find<span class="widont">&nbsp;</span>here:</p>
+<ul>
+<li>A just right amount of lean, well-commented, modern, HTML5<span class="widont">&nbsp;</span>templates.</li>
+<li>A helpful 404<span class="widont">&nbsp;</span>template.</li>
+<li>A custom header implementation in <code>inc/custom-header.php</code> just add the code snippet found in the comments of <code>inc/custom-header.php</code> to your <code>header.php</code> template.</li>
+<li>Custom template tags in <code>inc/template-tags.php</code> that keep your templates clean and neat and prevent code<span class="widont">&nbsp;</span>duplication.</li>
+<li>Some small tweaks in <code>inc/template-functions.php</code> that can improve your theming<span class="widont">&nbsp;</span>experience.</li>
+<li>A script at <code>js/navigation.js</code> that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It’s enqueued in <code>functions.php</code>.</li>
+<li>2 sample CSS layouts in <code>layouts/</code> for a sidebar on either side of your<span class="widont">&nbsp;</span>content.</li>
+<li>Smartly organized starter CSS in <code>style.css</code> that will help you to quickly get your design off the<span class="widont">&nbsp;</span>ground.</li>
+<li>Licensed under GPLv2 or later. :) Use it to make something<span class="widont">&nbsp;</span>cool.</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>If you want to set things up manually, download <code>Foxer</code> from GitHub. The first thing you want to do is copy the <code>foxer</code> directory and change the name to something else (like, say, <code>foxer-is-awesome</code>), and then you’ll need to do a five-step find and replace on the name in all the<span class="widont">&nbsp;</span>templates.</p>
+<ol>
+<li>Search for <code>'foxer'</code> (inside single quotations) to capture the text<span class="widont">&nbsp;</span>domain.</li>
+<li>Search for <code>foxer_</code> to capture all the function<span class="widont">&nbsp;</span>names.</li>
+<li>Search for <code>Text Domain: foxer</code> in <code>style.css</code>.</li>
+<li>Search for <code> Foxer</code> (with a space before it) to capture<span class="widont">&nbsp;</span>DocBlocks.</li>
+<li>Search for <code>foxer-</code> to capture prefixed<span class="widont">&nbsp;</span>handles.</li>
+</ol>
+<p>OR</p>
+<ol>
+<li>Search for: <code>'foxer'</code> and replace with: <code>'foxer-is-awesome'</code></li>
+<li>Search for: <code>foxer_</code> and replace with: <code>foxer_is_awesome_</code></li>
+<li>Search for: <code>Text Domain: foxer</code> and replace with: <code>Text Domain: foxer-is-awesome</code> in <code>style.css</code>.</li>
+<li>Search for: <code> Foxer</code> and replace with: <code> Foxer_is_Awesome</code></li>
+<li>Search for: <code>foxer-</code> and replace with: <code>foxer-is-awesome-</code></li>
+</ol>
+<p>Then, update the stylesheet header in <code>style.css</code>, the links in <code>footer.php</code> with your own information and rename <code>foxer.pot</code> from <code>languages</code> folder to use the theme’s slug. Next, update or delete this<span class="widont">&nbsp;</span>readme.</p>
+<p>Now you’re ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme.<span class="widont">&nbsp;</span>:)</p>
+<p>Good luck!</p>
+
+  </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="assets/webpack/vendor.min.js"></script>
+  <script type="text/javascript" src="assets/webpack/app.min.js"></script>
+  
+</body>
+</html>

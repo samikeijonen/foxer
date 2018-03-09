@@ -32,6 +32,7 @@
     "gulp-uglify": "~3",
     "gulp-wp-pot": "~2",
     "sassdoc": "~2",
+    "sassdoc-theme-herman": "^2.0.0",
     "stylelint": "^9.1.1",
     "stylelint-config-wordpress": "^12.0.0"
   },

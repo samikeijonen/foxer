@@ -325,7 +325,8 @@ gulp.task( 'js:lint', () =>
 gulp.task( 'sassdoc', function() {
 	let options = {
 		dest: 'docs',
-		verbose: true
+		verbose: true,
+		theme: 'herman'
 	};
 
 	return gulp.src( config.styleWatchFiles )
