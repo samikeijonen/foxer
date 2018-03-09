@@ -25,7 +25,7 @@ const reload = browserSync.reload;
 const rename = require( 'gulp-rename' );
 const sass = require( 'gulp-sass' );
 const sassdoc = require( 'sassdoc' );
-const sassLint = require( 'gulp-sass-lint' );
+const sassLint = require( 'gulp-stylelint' );
 const sort = require( 'gulp-sort' );
 const sourcemaps = require( 'gulp-sourcemaps' );
 const svgmin = require( 'gulp-svgmin' );
@@ -296,9 +296,13 @@ gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
  */
 gulp.task( 'sass:lint', () =>
 	gulp.src( config.SassLint )
-		.pipe( sassLint() )
-		.pipe( sassLint.format() )
-		.pipe( sassLint.failOnError() )
+		.pipe( sassLint(
+			{
+				reporters: [
+					{formatter: 'string', console: true}
+				]
+			}
+		) )
 );
 
 /**

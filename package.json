@@ -24,14 +24,16 @@
     "gulp-postcss": "~7",
     "gulp-rename": "~1",
     "gulp-sass": "~3",
-    "gulp-sass-lint": "~1",
     "gulp-sort": "~2",
     "gulp-sourcemaps": "~2",
+    "gulp-stylelint": "^7.0.0",
     "gulp-svgmin": "~1",
     "gulp-svgstore": "~6",
     "gulp-uglify": "~3",
     "gulp-wp-pot": "~2",
-    "sassdoc": "~2"
+    "sassdoc": "~2",
+    "stylelint": "^9.1.1",
+    "stylelint-config-wordpress": "^12.0.0"
   },
   "devDependencies": {},
   "scripts": {

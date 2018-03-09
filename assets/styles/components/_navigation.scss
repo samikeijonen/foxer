@@ -20,6 +20,7 @@
 }
 
 @media screen and (min-width: 42.5em) {
+
 	.menu-toggle {
 		display: none;
 	}
@@ -29,6 +30,7 @@
 	}
 
 	.menu__items {
+
 		&,
 		&.is-toggled {
 			display: flex;
@@ -47,7 +49,8 @@
 			width: $global-spacing-unit-huge * 2;
 			z-index: 99999;
 
-			// Class "focus" is added by Javascript which enables keyboard focus to submenu items.
+			// Class "focus" is added by Javascript which enables
+			// keyboard focus to submenu items.
 			& li:hover > ul,
 			& .focus > ul {
 				left: 100%;
@@ -77,6 +80,7 @@
 	}
 
 	.menu__anchor {
+
 		& .icon {
 			display: inline-block;
 		}

@@ -1,4 +1,4 @@
-// sass-lint:disable property-units, no-important
+/* stylelint-disable declaration-no-important */
 
 /// Text meant only for screen readers.
 .screen-reader-text {
@@ -11,7 +11,8 @@
 	padding: 0;
 	position: absolute !important;
 	width: 1px;
-	// Many screen reader and browser combinations announce broken words as they would appear visually.
+	// Many screen reader and browser combinations announce broken words
+	// as they would appear visually.
 	word-wrap: normal !important;
 
 	&:focus {
@@ -21,7 +22,7 @@
 		clip-path: none;
 		color: $color-white;
 		display: block;
-		font-weight: bold;
+		font-weight: 700;
 		height: auto;
 		left: $global-spacing-unit-tiny;
 		padding: $global-spacing-unit-tiny $global-spacing-unit-small;
@@ -32,6 +33,8 @@
 		z-index: 100000;
 	}
 }
+
+/* stylelint-enable */
 
 // Do not show the outline on the skip link target.
 #main[tabindex="-1"]:focus {

@@ -3,6 +3,8 @@
 /// Inspired by inuitcss.
 /// @link: https://github.com/inuitcss/inuitcss
 
+/* stylelint-disable declaration-bang-space-before */
+
 $global-baseline:       0.5rem  !default;
 $global-baseline-small: 0.25rem !default;
 
@@ -20,12 +22,12 @@ $global-factor-huge:   13 !default;
 /// It is not recommended that you modify these following variables
 /// (it can break your vertical rhythm), but if you need to, you can.
 
-$global-spacing-unit:        $global-baseline * $global-factor !default;
-$global-spacing-unit-tiny:   $global-baseline * $global-factor-tiny !default;
-$global-spacing-unit-small:  $global-baseline * $global-factor-small !default;
-$global-spacing-unit-large:  $global-baseline * $global-factor-large !default;
+$global-spacing-unit:        $global-baseline * $global-factor        !default;
+$global-spacing-unit-tiny:   $global-baseline * $global-factor-tiny   !default;
+$global-spacing-unit-small:  $global-baseline * $global-factor-small  !default;
+$global-spacing-unit-large:  $global-baseline * $global-factor-large  !default;
 $global-spacing-unit-larger: $global-baseline * $global-factor-larger !default;
-$global-spacing-unit-huge:   $global-baseline * $global-factor-huge !default;
+$global-spacing-unit-huge:   $global-baseline * $global-factor-huge   !default;
 
 /// Base typographical styles.
 /// Global font size.
@@ -48,3 +50,5 @@ $columns: (
 	8: 12.5%,
 	9: 11.11%
 );
+
+/* stylelint-enable */
