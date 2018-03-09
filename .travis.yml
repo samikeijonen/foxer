@@ -36,7 +36,8 @@ matrix:
 # Use this to prepare the system to install prerequisites or dependencies.
 # e.g. sudo apt-get update.
 # Failures in this section will result in build status 'errored'.
-# before_install:
+before_install:
+  - npm install -g npm@latest
 
 # Use this to prepare your build for testing.
 # e.g. copy database configurations, environment variables, etc.
@@ -61,7 +62,7 @@ before_script:
     - if [[ "$SNIFF" == "1" ]]; then phpenv rehash; fi
     # Install eslint and sass-lint.
     # @link https://eslint.org/
-    - if [[ "$SNIFF" == "1" ]]; then npm install eslint eslint-config-wordpress stylelint stylelint-config-wordpress; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm install -g eslint eslint-config-wordpress stylelint stylelint-config-wordpress; fi
 
 # Run test script commands.
 # Default is specific to project language.
