@@ -1,11 +1,35 @@
-// Center block.
+/// Center any block element.
+///
+/// @example scss - Basic Usage Sass
+///		.center-block {
+///			@include center-block;
+///    }
+///
+/// @example css - Basic Usage CSS Output
+/// 	.center-block {
+///			display: block;
+///			margin-left: auto;
+///			margin-right: auto;
+///		}
 @mixin center-block {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-// Reset list.
+/// Reset all padding and styles on both unordered and ordered lists.
+///
+/// @example scss - Basic Usage Sass
+///		.reset-list {
+///			@include reset-list;
+///    }
+///
+/// @example css - Basic Usage CSS Output
+/// 	.reset-list {
+///			list-style-type: none;
+///			margin: 0;
+///			padding: 0;
+///		}
 @mixin reset-list {
 	list-style-type: none;
 	margin: 0;
