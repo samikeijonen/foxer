@@ -19,6 +19,18 @@
 	}
 }
 
+// Show menu when there is no js, and hide menu toggle.
+.no-js {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.menu__items {
+		display: block;
+	}
+}
+
 @media screen and (min-width: 42.5em) {
 
 	.menu-toggle {
