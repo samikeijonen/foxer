@@ -17,6 +17,24 @@
 	margin-right: auto;
 }
 
+/// Resets margin and padding on any element.
+///
+/// @example scss - Basic Usage Sass
+///		.foo {
+///			@include reset-margin-padding;
+///		}
+///
+/// @example css - Basic Usage CSS Output
+///		.foo {
+///			margin: 0;
+///			padding: 0;
+///		}
+
+@mixin reset-margin-padding {
+	margin: 0;
+	padding: 0;
+}
+
 /// Reset all padding and styles on both unordered and ordered lists.
 ///
 /// @example scss - Basic Usage Sass
@@ -31,7 +49,6 @@
 ///			padding: 0;
 ///		}
 @mixin reset-list {
+	@include reset-margin-padding;
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
 }
