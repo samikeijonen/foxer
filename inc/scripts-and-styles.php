@@ -49,12 +49,6 @@ function foxer_editor_scripts() {
 
 	// Main styles for the editor.
 	wp_enqueue_style( 'foxer-style', get_parent_theme_file_uri( '/dist/styles/blocks' . $suffix . '.css' ), [], '20180301' );
-
-	// Dequeue Core block fonts.
-	wp_dequeue_style( 'wp-editor-font' );
-
-	// Dequeue Core block styles.
-	wp_dequeue_style( 'wp-blocks' );
 }
 add_action( 'enqueue_block_editor_assets', 'foxer_editor_scripts' );
 
