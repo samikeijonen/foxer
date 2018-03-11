@@ -326,7 +326,10 @@ gulp.task( 'sassdoc', function() {
 	let options = {
 		dest: 'docs',
 		verbose: true,
-		theme: 'herman'
+		theme: 'herman',
+		herman: {
+			displayColors: ['hex', 'rgb', 'hsl']
+		  }
 	};
 
 	return gulp.src( config.styleWatchFiles )
