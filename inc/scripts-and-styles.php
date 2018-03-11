@@ -13,16 +13,16 @@ function foxer_scripts() {
 	$suffix = foxer_get_min_suffix();
 
 	// Custom fonts, used in the main stylesheet.
-	wp_enqueue_style( ' foxer-fonts', foxer_fonts_url(), [], null );
+	wp_enqueue_style( 'foxer-fonts', foxer_fonts_url(), [], null );
 
 	// Main styles.
-	wp_enqueue_style( ' foxer-style', get_parent_theme_file_uri( '/dist/styles/style' . $suffix . '.css' ), [], '20180101' );
+	wp_enqueue_style( 'foxer-style', get_parent_theme_file_uri( '/dist/styles/style' . $suffix . '.css' ), [], '20180101' );
 
 	// Main scripts.
-	wp_enqueue_script( ' foxer-navigation', get_theme_file_uri( '/dist/scripts/navigation' . $suffix . '.js' ), [], '20180101', true );
+	wp_enqueue_script( 'foxer-navigation', get_theme_file_uri( '/dist/scripts/navigation' . $suffix . '.js' ), [], '20180101', true );
 
 	// Skip link for older browsers (IE 11).
-	wp_enqueue_script( ' foxer-skip-link-focus-fix', get_theme_file_uri( '/dist/scripts/skip-link-focus-fix' . $suffix . '.js' ), [], '20180101', true );
+	wp_enqueue_script( 'foxer-skip-link-focus-fix', get_theme_file_uri( '/dist/scripts/skip-link-focus-fix' . $suffix . '.js' ), [], '20180101', true );
 
 	// Dequeue Core block styles.
 	wp_dequeue_style( 'wp-blocks' );
@@ -36,6 +36,27 @@ function foxer_scripts() {
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 }
 add_action( 'wp_enqueue_scripts', 'foxer_scripts' );
+
+/**
+ * Enqueue scripts and styles for the editor.
+ */
+function foxer_editor_scripts() {
+	// Get '.min' suffix.
+	$suffix = foxer_get_min_suffix();
+
+	// Add custom fonts.
+	wp_enqueue_style( 'foxer-fonts', foxer_fonts_url(), [], null );
+
+	// Main styles for the editor.
+	wp_enqueue_style( 'foxer-style', get_parent_theme_file_uri( '/dist/styles/blocks' . $suffix . '.css' ), [], '20180301' );
+
+	// Dequeue Core block fonts.
+	wp_dequeue_style( 'wp-editor-font' );
+
+	// Dequeue Core block styles.
+	wp_dequeue_style( 'wp-blocks' );
+}
+add_action( 'enqueue_block_editor_assets', 'foxer_editor_scripts' );
 
 /**
  * Filters the 'stylesheet_uri' to allow theme developers to offer a minimized version of their main
