@@ -2,14 +2,11 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	background-color: $color-darkest;
-	border: none;
-	color: $color-white;
-	padding: $global-spacing-unit-tiny $global-spacing-unit-small;
+	@include button-block;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $color-dark;
+		@include button-block-hover;
 	}
 }

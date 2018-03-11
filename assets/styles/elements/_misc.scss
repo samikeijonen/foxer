@@ -5,6 +5,10 @@ i {
 	font-style: italic;
 }
 
+cite {
+	@include font-size(1rem);
+}
+
 address {
 	margin: 0 0 $global-spacing-unit;
 }

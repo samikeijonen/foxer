@@ -56,3 +56,41 @@
 	@include reset-margin-padding;
 	list-style-type: none;
 }
+
+/// Button styles.
+///
+/// @example scss - Basic Usage Sass
+///		.button {
+///			@include button-block;
+///    }
+///
+/// @example css - Basic Usage CSS Output
+/// 	.button {
+///			background-color: #222;
+///			border: none;
+///			color: #fff;
+///			padding: 1.5rem;
+///		}
+@mixin button-block {
+	background-color: $color-darkest;
+	border: none;
+	color: $color-white;
+	padding: $global-spacing-unit-tiny $global-spacing-unit-small;
+}
+
+/// Button hover styles.
+///
+/// @example scss - Basic Usage Sass
+///		.button:hover,
+///		.button:focus {
+///			@include button-block-hover;
+///    }
+///
+/// @example css - Basic Usage CSS Output
+/// 	.button:hover
+///		.button:focus {
+///			background-color: #111;
+///		}
+@mixin button-block-hover {
+	background-color: $color-dark;
+}
