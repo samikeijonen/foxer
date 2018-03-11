@@ -50,10 +50,10 @@ function handleErrors() {
 }
 
 /**
- * Delete style.css and style.min.css before we minify and optimize
+ * Delete *.css and *.min.css before we minify and optimize.
  */
 gulp.task( 'clean:styles', () =>
-	del( [ `${config.styleDestination}/${config.styleName}`, `${config.styleDestination}/${config.styleMinName}` ] )
+	del( config.styleDistAll )
 );
 
 /**
@@ -93,18 +93,18 @@ gulp.task( 'postcss', [ 'clean:styles' ], () =>
 		// Create sourcemap.
 		.pipe( sourcemaps.write() )
 
-		// Create style.css.
+		// Create *.css files.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( browserSync.stream() )
 );
 
 /**
- * Minify and optimize style.css.
+ * Minify and optimize *.css files.
  *
  * https://www.npmjs.com/package/gulp-cssnano
  */
 gulp.task( 'cssnano', [ 'postcss' ], () =>
-	gulp.src( `${config.styleDestination}/${config.styleName}` )
+	gulp.src( config.styleDistSRC )
 		.pipe( plumber( {'errorHandler': handleErrors} ) )
 		.pipe( cssnano( {
 			'safe': true // Use safe optimizations.
