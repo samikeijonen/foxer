@@ -292,7 +292,7 @@ gulp.task( 'wp-pot', [ 'clean:pot' ], () =>
 /**
  * Sass linting.
  *
- * https://www.npmjs.com/package/sass-lint
+ * https://www.npmjs.com/package/stylelint
  */
 gulp.task( 'sass:lint', () =>
 	gulp.src( config.SassLint )
