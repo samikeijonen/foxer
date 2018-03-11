@@ -157,6 +157,11 @@ require get_parent_theme_file_path( '/inc/template-tags.php' );
 require get_parent_theme_file_path( '/inc/filters.php' );
 
 /**
+ * Responsive videos.
+ */
+require get_parent_theme_file_path( '/inc/responsive-videos.php' );
+
+/**
  * Customizer additions.
  */
 require get_parent_theme_file_path( '/inc/customizer.php' );

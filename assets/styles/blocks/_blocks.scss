@@ -84,6 +84,23 @@
 
 }
 
+// Embed blocks.
+.wp-block-embed__wrapper {
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+
+	& iframe {
+		height: 100%;
+		max-width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+}
+
 // Gallery.
 .wp-block-gallery,
 .wp-block-gallery.alignleft,
@@ -127,8 +144,8 @@
 
 	// Cropped.
 	&.is-cropped .blocks-gallery-item { /* stylelint-disable-line */
-		a,
-		img {
+		& a,
+		& img {
 			flex: 1;
 			height: 100%;
 			object-fit: cover;
